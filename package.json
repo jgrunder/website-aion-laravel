@@ -14,5 +14,10 @@
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14"
+    },
+    "dependencies": {
+        "bootstrap-sass": "^3.4.1",
+        "gulp": "^4.0.2",
+        "laravel-elixir-imagemin": "^0.2.3"
     }
 }
