@@ -1,0 +1,130 @@
+.container_left{
+  .call_to_action {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    a {
+      width: 187px;
+      height: 104px;
+      border-radius: 5px;
+      box-shadow: 1px 1.732px 4px 0px rgba(0, 0, 0, 0.2);
+    }
+    .online_player {
+      background: url('../images/bloc_online_player.jpg') no-repeat;
+      background-size: cover;
+      position: relative;
+      .elyos_count {
+        position: absolute;
+        bottom: 21px;
+        left: 65px;
+        color: white;
+        font-size: 20px;
+      }
+      .asmo_count {
+        position: absolute;
+        bottom: 21px;
+        right: 15px;
+        color: white;
+        font-size: 20px;
+      }
+    }
+    .donation {
+      background: url('../images/bloc_donation.jpg') no-repeat;
+      background-size: cover;
+      position: relative;
+      span {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: white;
+      }
+    }
+    .shop {
+      background: url('../images/bloc_shop.jpg') no-repeat;
+      background-size: cover;
+      position: relative;
+      span {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: white;
+      }
+    }
+  }
+  .news {
+    box-shadow: 1px 1.732px 4px 0px rgba(0, 0, 0, 0.2);
+    &:nth-child(n+2){
+      margin-top: 30px;
+    }
+    .news_top {
+      width: 100%;
+      height: 55px;
+      background-color: #f4f4f4;
+      background-size: cover;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+      line-height: 55px;
+      padding-left: 30px;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: #2e2e2e;
+      a {
+        color: #2e2e2e;
+      }
+    }
+    .news_body {
+      background-color: #fcf8f7;
+      padding: 30px;
+      color: #555555;
+      line-height: 1.5;
+      font-size: 16px;
+    }
+    .news_footer {
+      background-color: #fcf8f7;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      color: #aaaaaa;
+      font-size: 14px;
+      padding-right: 30px;
+      padding-bottom: 30px;
+      text-align: left;
+      p {
+        padding-left: 30px;
+        float: left;
+      }
+      a{
+        float: right;
+      }
+    }
+  }
+}
+.container_right{
+  .joinus {
+    width: 100%;
+    height: 63px;
+    display: block;
+    background: url('../images/btn_join_us.png') no-repeat;
+    &.en {
+      background: url('../images/btn_join_us_en.png') no-repeat !important;
+    }
+  }
+  .bloc_vote {
+    a:first-child, p:first-child {
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  .bloc_battleranking {
+    .bloc_header {
+      width: 100%;
+      height: 56px;
+      background: url('../images/bloc_battleranking_background.jpg') no-repeat;
+      background-size: cover;
+      h2 {
+        color: white !important;
+        font-weight: normal !important;
+        text-align: left;
+      }
+    }
+  }
+}

@@ -1,0 +1,129 @@
+/* ICONS CLASS */
+.charactericon-class {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	background-image: url('../images/icon_class.png');
+	background-repeat: no-repeat;
+  position: relative;
+  top: 2px;
+}
+
+.icon_emblem_artist {
+	background-position: -5px -5px;
+}
+
+.icon_emblem_assassin {
+	background-position: -33px -5px;
+}
+
+.icon_emblem_bard {
+	background-position: -61px -5px;
+}
+
+.icon_emblem_chanter {
+	background-position: -89px -5px;
+}
+
+.icon_emblem_cleric {
+	background-position: -117px -5px;
+}
+
+.icon_emblem_gladiator {
+	background-position: -145px -5px;
+}
+
+.icon_emblem_gunner {
+	background-position: -173px -5px;
+}
+
+.icon_emblem_mage {
+	background-position: -201px -5px;
+}
+
+.icon_emblem_priest {
+	background-position: -229px -5px;
+}
+
+.icon_emblem_ranger {
+	background-position: -257px -5px;
+}
+
+.icon_emblem_rider {
+	background-position: -285px -5px;
+}
+
+.icon_emblem_scout {
+	background-position: -313px -5px;
+}
+
+.icon_emblem_sorcerer {
+	background-position: -341px -5px;
+}
+
+.icon_emblem_spiritmaster {
+	background-position: -369px -5px;
+}
+
+.icon_emblem_templar {
+	background-position: -397px -5px;
+}
+
+.icon_emblem_warrior {
+	background-position: -425px -5px;
+}
+
+.icon_elyos {
+  width: 16px;
+  height: 18px;
+  display: inline-block;
+  background: url('../images/elyos_icon.png') no-repeat;
+  position: relative;
+  top: 2px;
+}
+
+.icon_asmo {
+  width: 15px;
+  height: 20px;
+  display: inline-block;
+  background: url('../images/asmo_icon.png') no-repeat;
+  position: relative;
+  top: 2px;
+}
+
+.quality-mythic {
+	color: #8f39ce;
+	&:active, &:hover {
+		color: #8f39ce;
+	}
+}
+.quality-epic {
+	color: #f08033;
+	&:active, &:hover {
+		color: #f08033;
+	}
+}
+.quality-unique {
+    color: #f0b71c;
+	&:active, &:hover {
+		color: #f0b71c;
+	}
+}
+.quality-legend {
+	color: #4ccfff;
+	&:active, &:hover {
+		color: #4ccfff;
+	}
+}
+.quality-rare {
+	color: #69e15e;
+	&:active, &:hover {
+		color: #69e15e;
+	}
+}
+.quality-common, .quality-none {
+	color: black;
+	&:active, &:hover {
+		color: black;
+	}
+}

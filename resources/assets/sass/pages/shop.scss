@@ -1,0 +1,120 @@
+.shop_container{
+  display: flex;
+  flex-wrap: wrap;
+}
+.item_shop {
+  width: 30%;
+  background-color: #e6e6e6;
+  border-radius : 5px;
+  padding: 10px;
+  position: relative;
+  margin-left: 13px;
+  img {
+    width: 30px;
+    height: 30px;
+    float: left;
+  }
+  h3 {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #8e8e8e;
+    a {
+      padding-left: 5px;
+      font-size: 10px;
+    }
+  }
+
+  ul {
+    padding: 5px 0px 5px 0px;
+    font-size: 11px;
+    .value {
+      color: #4c72a1;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    a {
+      width: 45%;
+      padding: 5px 10px 5px 10px;
+      background-color: rgba(#4c72a1, 0.79);
+      border-radius: 5px;
+      color: white;
+      text-align: center;
+      font-size: 14px;
+      &:first-child {
+        margin-right: 5px;
+      }
+      &:last-child {
+        margin-left: 5px;
+      }
+    }
+    .previewItem {
+      background-color: rgba(black, 0.8);
+    }
+    .addItemInCart {
+      background-color: #4c72a1;
+    }
+  }
+  &:nth-child(n+4){
+    margin-top: 20px;
+  }
+  .price, .quantity { color: #2e2e2e; font-size: 14px;}
+}
+.container_shop_categories{
+  text-align: left;
+  line-height: 1.5;
+  color: #4c72a1;
+  .sub_categorie{
+    margin-left: 20px;
+    display: none;
+  }
+  a {
+    color: #2e2e2e;
+    margin-bottom: 0px !important;
+  }
+  li {
+    cursor: pointer;
+  }
+}
+.container_shop_cart {
+  font-size: 13px;
+  a {
+    margin-bottom: 0px !important;
+    color: #4c72a1;
+  }
+  .btn {
+    color: white;
+    margin-top: 30px;
+    padding-top: 15px;
+    display: inline-block;
+    background-color: #332d31;
+    border-bottom-color: #332d31;
+    font-size: 15px;
+  }
+  .gift_button{
+    background-color: rgba(#4c72a1, 0.79);
+    border-bottom-color: rgba(#4c72a1, 0.79);
+  }
+}
+.container_shop_recap{
+    tbody {
+        tr:last-child {
+            border-bottom: none;
+            &:hover {
+                background-color: transparent;
+            }
+        }
+    }
+    form {
+        text-align: center;
+        .select {
+            height: 45px;
+            outline: 0;
+        }
+        .btn {
+            margin-top: 20px;
+        }
+    }
+}

@@ -1,0 +1,95 @@
+div.container{
+  width: 940px;
+  margin: auto;
+  position: relative;
+  top: -310px;
+  .container_left {
+    width: 620px;
+    float: left;
+  }
+  .container_right {
+    width: 300px;
+    margin-left: 20px;
+    float: right;
+    > div:nth-child(n+2){
+      margin-top: 30px;
+    }
+    .bloc_with_header {
+      width: 100%;
+      background-color: #ffffff;
+      box-shadow: 1px 1.732px 4px 0px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      .bloc_header {
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+        padding: 20px;
+        text-align: center;
+        background-color: #f4f4f4;
+        h2{
+          font-size: 18px;
+          color: #2e2e2e;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+        p {
+          font-size: 14px;
+          color: #8e8e8e;
+          margin-top: 10px;
+        }
+      }
+      .bloc_body {
+        padding: 20px;
+      }
+    }
+    .bloc_without_header {
+      width: 100%;
+      background-color: #ffffff;
+      box-shadow: 1px 1.732px 4px 0px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      padding: 20px;
+    }
+  }
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+
+div.container_single {
+  width: 940px;
+  margin: auto;
+  position: relative;
+  top: -310px;
+  .container_single_top{
+    width: 100%;
+    height: 55px;
+    background: url('../images/container_top_background.jpg') no-repeat;
+    background-size: cover;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    color: white;
+    line-height: 55px;
+    padding-left: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .container_single_body {
+    background-color: #fdf9f8;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 30px;
+    color: #555555;
+    font-size: 16px;
+    line-height: 1.5;
+    .error {
+      font-size: 18px;
+      float: left;
+      color: #ff4c23;
+      margin-top: 200px;
+      margin-left: 50px;
+    }
+  }
+}
