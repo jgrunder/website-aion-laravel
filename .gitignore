@@ -1,3 +1,9 @@
+########## App ##########
+public/uploads
+public/css
+public/images
+public/js
+
 ########## Laravel ##########
 /node_modules
 /public/hot
