@@ -1,41 +1,58 @@
-var elixir = require('laravel-elixir');
-var elixirImageMin = require('laravel-elixir-imagemin');
+const { parallel, src, dest } = require('gulp');
+const concat = require('gulp-concat');
+var sass = require('gulp-sass')(require('sass'));
 
 /**
  * Stylesheet
  */
-elixir(function(mix) {
-    mix.sass('global.scss')
-       .styles([
-            'bootswatch.min.css',
-            'font-awesome.min.css'
-       ], 'public/css/admin.css')
-       .styles([
-            'font-awesome.min.css'
-       ], 'public/css/libs.css');
-});
+
+exports.default = parallel(cssLibs, cssGlobal, jsLibs, jsGlobal, allImages);
+
+function cssLibs() {
+  return src([
+    'resources/assets/css/bootswatch.min.css',
+    'resources/assets/css/font-awesome.min.css',
+  ])
+    .pipe(concat('libs.css'))
+    .pipe(dest('public/css'));
+};
+
+function cssGlobal() {
+  return src('resources/assets/sass/global.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(dest('public/css'));
+};
+
 
 /**
  * Scripts
  */
-elixir(function(mix) {
-    mix.scripts([
-        'libs/jquery-2.1.4.min.js',
-        'libs/bootstrap.min.js',
-        'script_admin.js'
-    ], 'public/js/admin.js');
 
-    mix.scripts([
-        'libs/jquery-2.1.4.min.js',
-        'libs/jquery.bxslider.min.js',
-        'libs/sweetalert.min.js',
-        'script.js'
-    ], 'public/js/global.js');
-});
+function jsLibs() {
+  return src([
+    'resources/assets/js/libs/jquery-2.1.4.min.js',
+    'resources/assets/js/libs/bootstrap.min.js',
+	'resources/assets/js/libs/jquery.bxslider.min.js',
+	'resources/assets/js/libs/sweetalert.min.js',
+  ])
+    .pipe(concat('libs.js'))
+    .pipe(dest('public/js'));
+}
+
+function jsGlobal() {
+  return src([
+    'resources/assets/js/script.js',
+    'resources/assets/js/script_admin.js',
+  ])
+    .pipe(concat('global.js'))
+    .pipe(dest('public/js'));
+}
 
 /**
  * Images
  */
-elixir(function(mix) {
-    mix.imagemin("./resources/assets/images", "public/images");
-})
+
+function allImages() {
+  return src('resources/assets/images/*')
+	.pipe(dest('public/images'));
+}

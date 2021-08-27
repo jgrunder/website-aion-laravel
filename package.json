@@ -11,13 +11,14 @@
     },
     "devDependencies": {
         "axios": "^0.21",
-        "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14"
     },
     "dependencies": {
         "bootstrap-sass": "^3.4.1",
         "gulp": "^4.0.2",
-        "laravel-elixir-imagemin": "^0.2.3"
+        "gulp-concat": "^2.6.1",
+        "gulp-sass": "^5.0.0",
+        "sass": "^1.38.1"
     }
 }
