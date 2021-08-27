@@ -113,7 +113,8 @@
 
     <!-- JAVASCRIPTS -->
     @section('javascript')
-        <script type="text/javascript" src="{!! asset('js/global.js') !!}"></script>
+		<script type="text/javascript" src="{!! asset('js/libs.js') !!}"></script>
+		<script type="text/javascript" src="{!! asset('js/global.js') !!}"></script>
     @show
 </body>
 </html>

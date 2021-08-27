@@ -11,7 +11,8 @@
     <meta name="location" content="France"/>
 
     <!-- STYLESHEETS -->
-    <link href="{!! asset('css/admin.css') !!}" rel="stylesheet">
+    <link href="{!! asset('css/libs.css') !!}" rel="stylesheet">
+    <link href="{!! asset('css/global.css') !!}" rel="stylesheet">
 </head>
 <body>
 
@@ -111,6 +112,7 @@
 
     <!-- JAVASCRIPTS -->
     <script type="text/javascript" src="{!! asset('js/ckeditor/ckeditor.js') !!}"></script>
-    <script type="text/javascript" src="{!! asset('js/admin.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('js/libs.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('js/global.js') !!}"></script>
 </body>
 </html>
