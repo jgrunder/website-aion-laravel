@@ -6,7 +6,6 @@ $bodyBackground: #ffffff;
 /*
  * IMPORTS
  */
-@import url(http://allfont.net/allfont.css?fonts=montserrat-light);
 @import 'layout/reset.scss';
 @import 'layout/aion.scss';
 @import 'layout/sweetalert.scss';
@@ -16,6 +15,7 @@ $bodyBackground: #ffffff;
 @import 'layout/slider.scss';
 @import 'layout/container.scss';
 @import 'layout/footer.scss';
+@import 'layout/fonts.scss';
 
 @import 'pages/home.scss';
 @import 'pages/subscribe.scss';
