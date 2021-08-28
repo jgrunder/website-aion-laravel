@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd05a4fbcd487d267238aa7a616c5d47",
+    "content-hash": "c9612d644edcd15545f2d4180d201f23",
     "packages": [
         {
             "name": "artesaos/seotools",
@@ -1037,6 +1037,127 @@
                 "source": "https://github.com/guzzle/psr7/tree/2.0.0"
             },
             "time": "2021-06-30T20:03:07+00:00"
+        },
+        {
+            "name": "hardevine/shoppingcart",
+            "version": "3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hardevine/LaravelShoppingcart.git",
+                "reference": "8dea942f3c61ed450fe7dfee968dc9943fa649f8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hardevine/LaravelShoppingcart/zipball/8dea942f3c61ed450fe7dfee968dc9943fa649f8",
+                "reference": "8dea942f3c61ed450fe7dfee968dc9943fa649f8",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/events": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*|^6|^7|^8",
+                "illuminate/session": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*|^6|^7|^8",
+                "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*|^6|^7|^8"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.0",
+                "orchestra/testbench": "~3.1",
+                "phpunit/phpunit": "~5.0 || ~6.0 || ~7.0"
+            },
+            "suggest": {
+                "gloudemans/notify": "Simple flash notifications for Laravel"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider"
+                    ],
+                    "aliases": {
+                        "Cart": "Gloudemans\\Shoppingcart\\Facades\\Cart"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Gloudemans\\Shoppingcart\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Gloudemans",
+                    "email": "info@robgloudemans.nl"
+                }
+            ],
+            "description": "Laravel Shoppingcart",
+            "keywords": [
+                "laravel",
+                "shoppingcart"
+            ],
+            "support": {
+                "issues": "https://github.com/hardevine/LaravelShoppingcart/issues",
+                "source": "https://github.com/hardevine/LaravelShoppingcart/tree/3.0"
+            },
+            "time": "2021-05-26T08:26:01+00:00"
+        },
+        {
+            "name": "laravel-notification-channels/pushbullet",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-notification-channels/pushbullet.git",
+                "reference": "49bb8fae45b61aaa58d973fd207bb5df75ca1875"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-notification-channels/pushbullet/zipball/49bb8fae45b61aaa58d973fd207bb5df75ca1875",
+                "reference": "49bb8fae45b61aaa58d973fd207bb5df75ca1875",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.2 || ^7.0",
+                "illuminate/notifications": "~5.5 || ~6.0 || ~7.0 || ~8.0",
+                "illuminate/support": "~5.5 || ~6.0 || ~7.0 || ~8.0",
+                "php": ">=7.3"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.2.0",
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NotificationChannels\\Pushbullet\\PushbulletServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NotificationChannels\\Pushbullet\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Plekhanov",
+                    "email": "alex@plekhanov.dev",
+                    "homepage": "https://alex.plekhanov.dev",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel 5.3+ Notifications Pushbullet Driver",
+            "homepage": "https://github.com/laravel-notification-channels/pushbullet",
+            "support": {
+                "issues": "https://github.com/laravel-notification-channels/pushbullet/issues",
+                "source": "https://github.com/laravel-notification-channels/pushbullet/tree/1.3.0"
+            },
+            "time": "2021-07-28T21:18:14+00:00"
         },
         {
             "name": "laravel/framework",

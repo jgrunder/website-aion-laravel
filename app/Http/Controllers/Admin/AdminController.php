@@ -10,15 +10,12 @@ use App\Models\Webserver\LogsPaypal;
 use App\Models\Webserver\LogsShopPoints;
 use App\Models\Webserver\Pages;
 use App\Models\Webserver\ShopItem;
-
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
+use NotificationChannels\Pushbullet\PushbulletMessage;
 
-use Lahaxearnaud\LaravelPushbullet\LaravelPushbulletFacade;
 
 class AdminController extends Controller
 {
@@ -191,7 +188,7 @@ class AdminController extends Controller
             $data = $request->all();
             ConfigSlider::create([
                 'title' => $data['title'],
-                'path'  => ConfigSlider::upload(Input::file('path'))
+                'path'  => ConfigSlider::upload(Request::file('path'))
             ]);
         }
 
@@ -225,7 +222,7 @@ class AdminController extends Controller
 
             foreach($accounts as $account){
                 if(filter_var($account->pushbullet, FILTER_VALIDATE_EMAIL)){
-                    LaravelPushbulletFacade::user($account->pushbullet)->note('[Aion Server] '.$data['title'], $data['content']);
+                    PushbulletMessage::create($data['content'])->title('[Aion Server] '.$data['title']);
                 }
             }
         }
@@ -233,5 +230,10 @@ class AdminController extends Controller
         return view('admin.pushbullet', [
             'count' => $count
         ]);
+    }
+    
+    public function routeNotificationForPushbullet()
+    {
+        return new \NotificationChannels\Pushbullet\Targets\Email($this->email);
     }
 }
