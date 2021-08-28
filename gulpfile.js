@@ -6,7 +6,7 @@ var sass = require('gulp-sass')(require('sass'));
  * Stylesheet
  */
 
-exports.default = parallel(cssLibs, cssGlobal, jsLibs, jsGlobal, allImages, allFonts);
+exports.default = parallel(cssLibs, cssGlobal, jsLibs, jsGlobal, allImages, allFonts, fontAwesome);
 
 function cssLibs() {
   return src([
@@ -64,4 +64,9 @@ function allImages() {
 function allFonts() {
   return src('resources/assets/fonts/*')
 	.pipe(dest('public/fonts'));
+}
+
+function fontAwesome() {
+  return src('resources/assets/fonts/fontawesome/*')
+	.pipe(dest('public/fonts/fontawesome'));
 }
