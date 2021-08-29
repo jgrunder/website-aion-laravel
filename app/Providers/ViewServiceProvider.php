@@ -14,6 +14,7 @@ use App\Models\Webserver\ConfigSlider;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Log;
 
 class ViewServiceProvider extends ServiceProvider
 {
@@ -197,6 +198,11 @@ class ViewServiceProvider extends ServiceProvider
                     fclose($check);
                     
                 } catch (\Throwable $e) {
+                    Log::info('Server ' . $key . ' is not available');
+                    $serversStatus[] = [
+                        'name'   => $key,
+                        'status' => false
+                    ];
                     Cache::put('status.'.$key, false, $expiresAt);
                 }
                 
