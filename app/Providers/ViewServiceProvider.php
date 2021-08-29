@@ -55,9 +55,11 @@ class ViewServiceProvider extends ServiceProvider
         {
             $this->getSlider();
         });
-        view()->composer('admin.index', function ($view)
+        view()->composer('admin.*', function ($view)
         {
             $this->serversTest();
+            $this->getLanguageFromCookie();
+            $this->adminLogsMenu();
         });
     }
     
@@ -224,5 +226,28 @@ class ViewServiceProvider extends ServiceProvider
             $this->language = 'fr';
         }
         App::setLocale($this->language);
+    }
+    
+    /**
+     * Set variables $adminLogsMenu
+     */
+    private function adminLogsMenu()
+    {
+        if (session()->has('connected') && session()->get('user.access_level') > 0) {
+            
+            $logFiles  = Config::get('aion.logs.files');
+            $logsMenu  = [];
+            
+            foreach ($logFiles as $key => $value){
+                
+                if(session()->get('user.access_level') >= $value['access_level']) {
+                    $logsMenu[] = $value['file'];
+                }
+                
+            }
+            
+            View::share('adminLogsMenu', $logsMenu);
+            
+        }
     }
 }
