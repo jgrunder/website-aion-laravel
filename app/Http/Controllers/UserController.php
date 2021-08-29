@@ -12,7 +12,6 @@ use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Lang;
-use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -91,7 +90,7 @@ class UserController extends Controller
         // SEO
         SEOMeta::setTitle(Lang::get('seo.logout.title'));
 
-        Session::flush();
+        session()->flush();
 
         return redirect(route('home'))->with('success', Lang::get('flashMessage.user.logout'));
     }
@@ -104,8 +103,8 @@ class UserController extends Controller
         // SEO
         SEOMeta::setTitle(Lang::get('seo.account.title'));
 
-        $players        = Player::legion()->where('account_id', '=', Session::get('user.id'))->get();
-        $accountLevel   = AccountLevel::where('account_id', Session::get('user.id'))->first();
+        $players        = Player::legion()->where('account_id', '=', session()->get('user.id'))->get();
+        $accountLevel   = AccountLevel::where('account_id', session()->get('user.id'))->first();
         $levels         = Config::get('aion.levels');
 
         if(!$accountLevel){
@@ -121,7 +120,7 @@ class UserController extends Controller
         }
 
         return view('user.account', [
-            'user'      => Session::get('user'),
+            'user'      => session()->get('user'),
             'players'   => $players,
             'level'     => $accountLevel,
             'nextLevel' => $nextLevel
@@ -146,7 +145,7 @@ class UserController extends Controller
             if($data['password'] && ($data['password'] !== $data['password_confirmation'])){
                 $errors['password'] = 'Les mots de passe ne correspondent pas';
             } else if($data['password'] && ($data['password'] === $data['password_confirmation'])){
-                AccountData::where('id', Session::get('user.id'))->update([
+                AccountData::where('id', session()->get('user.id'))->update([
                     'password' => base64_encode(sha1($data['password'], true))
                 ]);
                 $success['password'] = 'Mot de passe sauvegardé';
@@ -154,15 +153,15 @@ class UserController extends Controller
 
             // Pseudo
             if($data['pseudo']) {
-                $accountBaseOnPseudo = AccountData::where('pseudo', $data['pseudo'])->where('id', '<>', Session::get('user.id'))->first();
+                $accountBaseOnPseudo = AccountData::where('pseudo', $data['pseudo'])->where('id', '<>', session()->get('user.id'))->first();
 
                 if($accountBaseOnPseudo){
                     $errors['pseudo'] = 'Le pseudo est déjà pris';
                 } else {
-                    AccountData::where('id', Session::get('user.id'))->update([
+                    AccountData::where('id', session()->get('user.id'))->update([
                         'pseudo' => $data['pseudo']
                     ]);
-                    Session::put('user.pseudo', $data['pseudo']);
+                    session()->put('user.pseudo', $data['pseudo']);
                     $success['pseudo'] = 'Pseudo sauvegardé';
                 }
             }
@@ -172,7 +171,7 @@ class UserController extends Controller
                 if(!filter_var($data['pushbullet'], FILTER_VALIDATE_EMAIL)){
                     $errors['pushbullet'] = 'Merci de rentrer un email valide';
                 } else {
-                    AccountData::where('id', Session::get('user.id'))->update([
+                    AccountData::where('id', session()->get('user.id'))->update([
                         'pushbullet' => $data['pushbullet']
                     ]);
                     $success['pushbullet'] = 'Pushbullet sauvegardé';
@@ -181,7 +180,7 @@ class UserController extends Controller
 
         }
 
-        $user = AccountData::where('id', Session::get('user.id'))->first();
+        $user = AccountData::where('id', session()->get('user.id'))->first();
 
         return view('user.edit', [
             'user'      => $user,
@@ -225,12 +224,12 @@ class UserController extends Controller
      */
     private function createSession($user)
     {
-        Session::put('connected', true);
-        Session::put('user.id', $user->id);
-        Session::put('user.name', $user->name);
-        Session::put('user.pseudo', $user->pseudo);
-        Session::put('user.email', $user->email);
-        Session::put('user.access_level', $user->access_level);
+        session()->put('connected', true);
+        session()->put('user.id', $user->id);
+        session()->put('user.name', $user->name);
+        session()->put('user.pseudo', $user->pseudo);
+        session()->put('user.email', $user->email);
+        session()->put('user.access_level', $user->access_level);
     }
 
 }
