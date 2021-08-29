@@ -34,16 +34,29 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('*', function ($view)
+        view()->composer('_layouts.master', function ($view)
         {
             $this->serversTest();
-            $this->accountVotes();
-            $this->countPlayersOnline();
             $this->accountShopPoints();
-            $this->topVotes();
             $this->getLanguageFromCookie();
-            $this->getSlider();
+        });
+        view()->composer('_modules.call_to_action', function ($view)
+        {
+            $this->countPlayersOnline();
+        });
+        view()->composer('_modules.right_sidebar', function ($view)
+        {
+            $this->accountVotes();
+            $this->topVotes();
             $this->weddings();
+        });
+        view()->composer(['_modules.slider', 'admin.slider'], function ($view)
+        {
+            $this->getSlider();
+        });
+        view()->composer('admin.index', function ($view)
+        {
+            $this->serversTest();
         });
     }
     
