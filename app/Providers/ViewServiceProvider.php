@@ -39,7 +39,6 @@ class ViewServiceProvider extends ServiceProvider
         {
             $this->serversTest();
             $this->accountShopPoints();
-            $this->getLanguageFromCookie();
         });
         view()->composer('_modules.call_to_action', function ($view)
         {
@@ -58,7 +57,6 @@ class ViewServiceProvider extends ServiceProvider
         view()->composer('admin.*', function ($view)
         {
             $this->serversTest();
-            $this->getLanguageFromCookie();
             $this->adminLogsMenu();
         });
     }
@@ -213,19 +211,6 @@ class ViewServiceProvider extends ServiceProvider
         }
         
         View::share('serversStatus', $serversStatus);
-    }
-    
-    /**
-     * Get Language from Cookie
-     */
-    private function getLanguageFromCookie()
-    {
-        if (Cookie::has('language')){
-            $this->language = Cookie::get('language');
-        } else {
-            $this->language = 'fr';
-        }
-        App::setLocale($this->language);
     }
     
     /**
