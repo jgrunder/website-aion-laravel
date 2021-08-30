@@ -23,7 +23,7 @@
                         <tr>
                             <th scope="row">{{$article->id}}</th>
                             <td>{{$article->title}}</td>
-                            <td>{{str_limit($article->text, $limit = 50, $end = '...')}}</td>
+                            <td>{{Str::limit($article->text, 50)}}</td>
                             <td>{{$article->creator->name}}</td>
                             <td>
                                 <a class="btn btn-warning btn-xs" href="{{Route('admin.news.edit', $article->id)}}">

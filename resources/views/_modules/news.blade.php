@@ -8,12 +8,12 @@
           @if(isset($full))
             {!! $article->text !!}
           @else
-            {!! str_limit(strip_tags($article->text, '<p><br>'), $limit = 350, $end = '...') !!}
+            {!! Str::limit(strip_tags($article->text, '<p><br>'), 350) !!}
           @endif
         </p>
       </div>
       <div class="news_footer">
-        <p>{{Lang::get('all.news.by')}} {{($article->creator->pseudo !== '') ? $article->creator->pseudo : 'Admin'}} {{Carbon::parse($article->updated_at)->diffForHumans()}}</p>
+        <p>{{Lang::get('all.news.by')}} {{($article->creator->pseudo !== '') ? $article->creator->pseudo : 'Admin'}} {{\Carbon\Carbon::parse($article->updated_at)->diffForHumans()}}</p>
           @if(!isset($full))
               <a href="{{Route('news', ["slug" => $article->slug, "id" => $article->id])}}">{{Lang::get('all.news.next')}}</a>
           @endif
