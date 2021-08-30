@@ -3,7 +3,7 @@ public/uploads
 public/css
 public/fonts
 public/images
-public/js
+public/js/*.js
 
 ########## Laravel ##########
 /node_modules
