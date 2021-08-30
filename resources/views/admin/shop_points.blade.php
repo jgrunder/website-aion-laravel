@@ -24,7 +24,7 @@
                             <td class="text-center">{{$point->receiver_name}}</td>
                             <td class="text-center">{{$point->points}}</td>
                             <td class="text-center">{{$point->reason}}</td>
-                            @if (Carbon::parse($point->created_at)->isToday())
+                            @if (\Carbon\Carbon::parse($point->created_at)->isToday())
                                 <td class="text-center text-success">{{$point->created_at}}</td>
                             @else
                                 <td class="text-center">{{$point->created_at}}</td>
