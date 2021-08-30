@@ -188,7 +188,7 @@ class AdminController extends Controller
             $data = $request->all();
             ConfigSlider::create([
                 'title' => $data['title'],
-                'path'  => ConfigSlider::upload(Request::file('path'))
+                'path'  => ConfigSlider::upload(\Illuminate\Support\Facades\Request::file('path'))
             ]);
         }
 
