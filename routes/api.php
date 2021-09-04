@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/online', ['uses'   => 'ApiController@online']);
+Route::get('/news', ['uses'   => 'ApiController@news']);
