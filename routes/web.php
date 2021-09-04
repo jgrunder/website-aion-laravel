@@ -51,10 +51,10 @@ Route::get('paypal-valid', ['as' => 'paypal.valid', 'uses' => 'PaiementControlle
     
 /** User */
 Route::group(['prefix' => 'user'], function() {
-    Route::get('subscribe', ['as' => 'user.subscribe', 'uses' => 'UserController@subscribe']);
-    Route::post('subscribe', 'UserController@createAccount');
-    Route::post('login', 'UserController@connect');
-    Route::get('logout', ['as' => 'user.logout', 'uses' => 'UserController@logout']);
+    Route::get('subscribe', ['as' => 'user.subscribe', 'uses' => 'UserController@subscribe', 'middleware' => 'guest']);
+    Route::post('subscribe', 'UserController@createAccount')->middleware('guest');
+    Route::post('login', 'UserController@connect')->middleware('guest');
+    Route::get('logout', ['as' => 'user.logout', 'uses' => 'UserController@logout'])->middleware('connected');
     Route::get('unlock/{playerId}/{accountId}', ['as' => 'user.unlock.player', 'uses'=> 'UserController@unlockPlayer']);
     Route::get('account', ['as' => 'user.account', 'uses' => 'UserController@account', 'middleware' => 'connected']);
     Route::match(['GET', 'POST'], 'edit', ['as' => 'user.account.edit', 'uses' => 'UserController@edit', 'middleware' => 'connected']);
