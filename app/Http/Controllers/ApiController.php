@@ -11,7 +11,10 @@ class ApiController extends Controller {
      */
     public function online()
     {
-        return Player::online()->count();
+        return ['response' => [
+            'player_count' => Player::online()->count(),
+            'result' => 1,
+        ]];
     }
     
 }
