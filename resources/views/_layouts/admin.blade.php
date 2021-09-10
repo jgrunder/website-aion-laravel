@@ -68,6 +68,7 @@
                             <li><a href="{{Route('admin.page', 'rules')}}">Edit : Rules</a></li>
                             <li><a href="{{Route('admin.page', 'team')}}">Edit : Team</a></li>
                             <li><a href="{{Route('admin.page', 'teamspeak')}}">Edit : Teamspeak</a></li>
+                            <li><a href="{{Route('admin.page', 'discord')}}">Edit : Discord</a></li>
                             <li><a href="{{Route('admin.page', 'subscribe')}}">Edit : Subscribe</a></li>
                             <li><a href="{{Route('admin.page', 'rates')}}">Edit : Rates of server</a></li>
                         </ul>

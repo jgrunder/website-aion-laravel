@@ -55,5 +55,12 @@ class Pages extends Seeder
           'fr'        => '',
           'en'        => ''
         ]);
+        
+        DB::connection('webserver')->table('pages')->insert([
+            'id'        => 7,
+            'page_name' => 'discord',
+            'fr'        => '',
+            'en'        => ''
+        ]);
     }
 }

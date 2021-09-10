@@ -28,6 +28,10 @@ return [
         'title'       => "Teamspeak",
         'description' => "Venez discuter sur notre serveur Teamspeak 3."
     ],
+    'discord'       => [
+        'title'       => "Discord",
+        'description' => "Venez discuter sur notre serveur Discord"
+    ],
     'rules'           => [
         'title'       => "Règlement",
         'description' => "Retrouvez le règlement du serveur et gardez-le en tête pour éviter de futurs problèmes."

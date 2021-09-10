@@ -46,6 +46,23 @@ class PageController extends Controller {
             'content' => $content[$this->language]
         ]);
     }
+    
+    /**
+     * GET /page/discord
+     */
+    public function discord()
+    {
+        // SEO
+        SEOMeta::setTitle(Lang::get('seo.discord.title'));
+        SEOMeta::setDescription(Lang::get('seo.discord.description'));
+        OpenGraph::setDescription(Lang::get('seo.discord.description'));
+        
+        $content = Pages::where('page_name', '=', 'discord')->first([$this->language]);
+        
+        return view('page.discord', [
+            'content' => $content[$this->language]
+        ]);
+    }
 
     /**
      * GET /page/rules

@@ -76,6 +76,7 @@ Route::group(['prefix' => 'database'], function() {
 Route::group(['prefix' => 'page'], function() {
     Route::get('joins-us', ['as' => 'page.joins-us', 'uses' => 'PageController@joinUs']);
     Route::get('teamspeak', ['as' => 'page.teamspeak', 'uses' => 'PageController@teamspeak']);
+    Route::get('discord', ['as' => 'page.discord', 'uses' => 'PageController@discord']);
     Route::get('rules', ['as' => 'page.rules', 'uses' => 'PageController@rules']);
     Route::get('team', ['as' => 'page.team', 'uses' => 'PageController@team']);
     Route::get('rates-of-server', ['as' => 'page.rates', 'uses' => 'PageController@rates']);

@@ -28,6 +28,10 @@ return [
         'title'       => "Teamspeak",
         'description' => "Come on speak with us!"
     ],
+    'discord'       => [
+        'title'       => "Discord",
+        'description' => "Come on speak with us!"
+    ],
     'rules'           => [
         'title'       => "Rules",
         'description' => "Found our rules, and save them in your head "

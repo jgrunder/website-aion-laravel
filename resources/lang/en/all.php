@@ -5,6 +5,7 @@ return [
         'home'             => 'Home',
         'about'            => 'About',
         'teamspeak'        => 'Teamspeak',
+        'discord'          => 'Discord',
         'team'             => 'Team',
         'contact'          => 'Contact',
         'rules'            => 'Rules',
