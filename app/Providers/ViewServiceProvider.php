@@ -176,11 +176,16 @@ class ViewServiceProvider extends ServiceProvider
         $serversStatus  = [];
         
         foreach ($servers as $key => $server) {
-            
+            if(!$server['enabled']) continue;
             if(Cache::has('status.'.$key)){
                 $serversStatus[] = [
                     'name'   => $key,
                     'status' => Cache::get('status.'.$key)
+                ];
+            } elseif ($key == 'Discord') {
+                $serversStatus[] = [
+                    'name'   => $key,
+                    'status' => true
                 ];
             } else {
                 $expiresAt  = Carbon::now()->addMinutes(5);

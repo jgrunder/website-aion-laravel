@@ -3,68 +3,37 @@ header.header {
   margin: auto;
   position: relative;
   top: -280px;
-  .header_top .status{
-    display: inline-block;
-    background-color: rgba(255,255,255, 0.5);
-    font-weight: bold;
-    font-size: 16px;
-    padding: 10px 15px 10px 15px;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-    position: relative;
-    z-index: 0;
-    bottom: -55px;
-    cursor: pointer;
-    transition: all 0.3s;
-    .online {
-      color: #1fab3d;
+  .header_top {
+    height: 88px;
+    .btn_user{
+      float: right;
+      font-weight: bold;
       position: relative;
-      top: 1px;
-    }
-    .offline {
-      color: #ff4c23;
-      position: relative;
-      top: 1px;
-    }
-    > span {
-      display: block;
-      &:nth-child(2){
-        margin-top: 10px;
-        margin-bottom: 10px;
+      bottom: -54px;
+      a {
+        text-decoration: none;
+        padding: 10px 20px 10px 20px;
       }
-    }
-    &:hover {
-      bottom: 0;
-    }
-  }
-  .header_top .btn_user{
-    float: right;
-    font-weight: bold;
-    position: relative;
-    bottom: -54px;
-    a {
-      text-decoration: none;
-      padding: 10px 20px 10px 20px;
-    }
-    a:first-child{
-      background-color: white;
-      color: #2e2e2e;
-      border-top-left-radius: 5px;
-      position: relative;
-      left: 5px;
-      top: 10px;
-      &:hover {
-        background-color: #eeeeee;
+      a:first-child{
+        background-color: white;
+        color: #2e2e2e;
+        border-top-left-radius: 5px;
+        position: relative;
+        left: 5px;
+        top: 10px;
+        &:hover {
+          background-color: #eeeeee;
+        }
       }
-    }
-    a:last-child{
-      background-color: #332d31;
-      color: white;
-      border-top-right-radius: 5px;
-      position: relative;
-      top: 10px;
-      &:hover {
-        background-color: #000000;
+      a:last-child{
+        background-color: #332d31;
+        color: white;
+        border-top-right-radius: 5px;
+        position: relative;
+        top: 10px;
+        &:hover {
+          background-color: #000000;
+        }
       }
     }
   }

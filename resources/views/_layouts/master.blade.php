@@ -22,7 +22,13 @@
 
     <!-- NAV -->
     <nav class="nav">
-
+        <div class="servers">
+            @foreach($serversStatus as $value)
+                <span class="server">
+                {{Lang::get('all.layout.status_of')}} {{$value['name']}} : <span class="{{($value['status']) ? 'online' : 'offline'}}">{{($value['status']) ? 'ON' : 'OFF'}}</span>
+                </span>
+            @endforeach
+        </div>
         <div class="languages">
             <a href="{{Route('language', 'fr')}}" class="flag fr"></a>
             <a href="{{Route('language', 'en')}}" class="flag en"></a>
@@ -62,13 +68,6 @@
 
         <!-- TOP -->
         <div class="header_top">
-            <div class="status">
-                @foreach($serversStatus as $value)
-                    <span>
-                    {{Lang::get('all.layout.status_of')}} {{$value['name']}} : <span class="{{($value['status']) ? 'online' : 'offline'}}">{{($value['status']) ? 'ON' : 'OFF'}}</span>
-                    </span>
-                @endforeach
-            </div>
             <div class="btn_user">
                 @if(Session::has('connected'))
                     <a href="{{Route('user.account')}}">{{Lang::get('all.nav.account')}} ({{Session::get('user.shop_points')}} Shop's Points)</a>
