@@ -10,8 +10,8 @@ return [
     'languages'          => ['en', 'fr'],
     'contactMail'        => 'admin@hostname',
     'forumUrl'           => '#',
-    'minimumAccessLevel' => 2, // Minimum accessLevel for access to the back office
-    'enable_weddings'    => true, // Display block with last 5 weddings
+    'minimumAccessLevel' => 3, // Minimum accessLevel for access to the back office
+    'enable_weddings'    => false, // Display block with last 5 weddings
 
     'page' => [
         'online_players' => [
@@ -45,36 +45,45 @@ return [
     ],
 
     'allopass' => [
+        'enabled'     => false,
         'url'         => 'https://payment.allopass.com/buy/buy.apu?ids={IDS}&idd={IDD}',
         'pointsGiven' => 4000,
         'documentId'  => ''
     ],
 
     'paypal' => [
-        'email'            => 'admin@hostname',
-        'maxShopPoints'    => 1000000,
-        'points_per_euro'  => 5000, // 5000 Shop's Points equal 1€
-        'currency_code'    => 'EUR', // Look paypal for that
-        'currency_display' => '€'
+        'enabled'           => false
+        'email'             => 'admin@hostname',
+        'maxShopPoints'     => 1000000,
+        'points_per_euro'   => 5000, // 5000 Shop's Points equal 1€
+        'currency_code'     => 'EUR', // Look paypal for that
+        'currency_display'  => '€'
     ],
 
     'servers' => [
         'Game' => [
-            'ip'   => '127.0.0.1',
-            'port' => 2106
+            'ip'    => '127.0.0.1',
+            'port'  => 2106
         ],
         'Login' => [
-            'ip'   => '127.0.0.1',
-            'port' => 7777
+            'ip'    => '127.0.0.1',
+            'port'  => 7777
         ],
         'TS' => [
-            'ip'   => '127.0.0.1',
-            'port' => 9987
-        ]
+            'enabled'   => false,
+            'ip'        => '127.0.0.1',
+            'port'      => 9987
+        ],
+        'Discord' => [
+            'enabled'   => false,
+            'url'       => '#'
+        ],
     ],
 
     // On the back office you can download logs from the server
     'logs' => [
+        'enabled'   => true,
+        'type'      => 'files', // Type can be files or db
         'path' => '/path/to/log/files/',
         'files' => [
             [

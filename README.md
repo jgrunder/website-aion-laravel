@@ -46,7 +46,7 @@ MAIL_PASSWORD    = null
 
 4. Update ```DB_HOST_GS | DB_HOST_LS | DB_HOST_WS``` and other for have access to databases. (You need create empty database for the website)
 
-4. You have a config files : ```config/aion.php```
+4. You have a config files : ```cp config/aion.exemple.php config/aion.php```
 
 5. Execute : ```php artisan migrate```
 

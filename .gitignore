@@ -22,6 +22,9 @@ yarn-error.log
 /.idea
 /.vscode
 
+########## Aion ##########
+/config/aion.php
+
 ########## Eclipse ##########
 
 .metadata
