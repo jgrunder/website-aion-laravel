@@ -44,7 +44,7 @@ class UserController extends Controller
         if(!GoogleReCaptchaV3::verifyResponse(
             $request->input('g-recaptcha-response'),
             $request->getClientIp())->isSuccess()) {
-                return redirect()->route('user.account')->with('error', 'Erreur reCaptcha');
+                return redirect()->back()->with('error', 'Erreur reCaptcha');
             }
         // SEO
         SEOMeta::setTitle(Lang::get('seo.subscribe.title'));
