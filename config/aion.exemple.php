@@ -52,7 +52,7 @@ return [
     ],
 
     'paypal' => [
-        'enabled'           => false
+        'enabled'           => false,
         'email'             => 'admin@hostname',
         'maxShopPoints'     => 1000000,
         'points_per_euro'   => 5000, // 5000 Shop's Points equal 1€
