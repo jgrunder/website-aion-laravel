@@ -42,14 +42,19 @@ class Player extends Model {
      */
     public function getExpAttribute($value)
     {
-        $expMapper = Lang::get('aion.exp');
+        if(config('aion.aion_version') == '2.7') {
+            $expMapper = Lang::get('aion.exp_27');
+        }
+        else {
+            $expMapper = Lang::get('aion.exp');
+        }
 
         foreach($expMapper as $xp => $level) {
             if($value <= $xp){
                 return $level;
-                break;
             }
         }
+        return $level;
     }
 
     /**
