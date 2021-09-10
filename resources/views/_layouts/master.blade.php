@@ -90,9 +90,9 @@
 
             <!-- SOCIAL -->
             <div class="social">
-                <a href="{{Config::get('aion.link_facebook')}}" target="_blank" class="fa fa-facebook"></a>
-                <a href="{{Config::get('aion.link_twitter')}}" target="_blank" class="fa fa-twitter"></a>
-                <a href="{{Config::get('aion.link_youtube')}}" target="_blank"class="fa fa-youtube-play"></a>
+                @if(config('aion.link_facebook') != '#')<a href="{{config('aion.link_facebook')}}" target="_blank" class="fa fa-facebook"></a>@endif
+                @if(config('aion.link_twitter') != '#')<a href="{{config('aion.link_twitter')}}" target="_blank" class="fa fa-twitter"></a>@endif
+                @if(config('aion.link_youtube') != '#')<a href="{{config('aion.link_youtube')}}" target="_blank"class="fa fa-youtube-play"></a>@endif
             </div>
 
         </div>
