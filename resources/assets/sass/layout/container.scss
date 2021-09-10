@@ -91,5 +91,15 @@ div.container_single {
       margin-top: 200px;
       margin-left: 50px;
     }
+    a {
+      text-decoration: underline !important;
+    }
+    strong {
+      font-weight: bold !important;
+    }
+    ol, ul {
+      list-style: auto;
+      margin-left: 50px
+    }
   }
 }
