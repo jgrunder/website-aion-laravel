@@ -55,7 +55,7 @@
                 @endforeach
             </span>
           @endif
-
+        {!!  GoogleReCaptchaV3::renderField('subscribe_id','subscribe_action') !!}
         <input type="submit" class="btn btn-primary" value="{!! Lang::get('all.subscribe.submit') !!}">
 
       {!! Form::close() !!}

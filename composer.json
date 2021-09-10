@@ -15,7 +15,8 @@
         "laravel/framework": "^8.54",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "laravelcollective/html": "^6.2"
+        "laravelcollective/html": "^6.2",
+        "timehunter/laravel-google-recaptcha-v3": "~2.5"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

@@ -12,6 +12,7 @@ use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Lang;
+use TimeHunter\LaravelGoogleReCaptchaV3\Facades\GoogleReCaptchaV3;
 
 class UserController extends Controller
 {
@@ -40,6 +41,11 @@ class UserController extends Controller
      */
     public function createAccount(SubscribeUserRequest $request)
     {
+        if(!GoogleReCaptchaV3::verifyResponse(
+            $request->input('g-recaptcha-response'),
+            $request->getClientIp())->isSuccess()) {
+                return redirect()->route('user.account')->with('error', 'Erreur reCaptcha');
+            }
         // SEO
         SEOMeta::setTitle(Lang::get('seo.subscribe.title'));
 

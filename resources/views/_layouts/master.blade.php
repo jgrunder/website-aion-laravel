@@ -116,5 +116,6 @@
 		<script type="text/javascript" src="{!! asset('js/libs.js') !!}"></script>
 		<script type="text/javascript" src="{!! asset('js/global.js') !!}"></script>
     @show
+    {!!  GoogleReCaptchaV3::init() !!}
 </body>
 </html>
