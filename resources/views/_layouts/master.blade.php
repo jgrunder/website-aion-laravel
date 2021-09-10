@@ -39,8 +39,8 @@
             <li>
                 <a href="#">{{Lang::get('all.nav.about')}}</a>
                 <ul class="sub_menu">
-                    <li><a href="{{Route('page.teamspeak')}}">{{Lang::get('all.nav.teamspeak')}}</a></li>
-                    <li><a href="{{Route('page.discord')}}">{{Lang::get('all.nav.discord')}}</a></li>
+                    @if(config('aion.servers.TS.enabled'))<li><a href="{{Route('page.teamspeak')}}">{{Lang::get('all.nav.teamspeak')}}</a></li>@endif
+                    @if(config('aion.servers.Discord.enabled'))<li><a href="{{Route('page.discord')}}">{{Lang::get('all.nav.discord')}}</a></li>@endif
                     <li><a href="{{Route('page.team')}}">{{Lang::get('all.nav.team')}}</a></li>
                     <li><a href="mailto:{{Config::get('aion.contactMail')}}">{{Lang::get('all.nav.contact')}}</a></li>
                 </ul>
