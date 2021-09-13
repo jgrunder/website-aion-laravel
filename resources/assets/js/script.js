@@ -10,7 +10,8 @@
 			prevSelector: '#slider-prev',
 			nextText: '',
 			prevText: '',
-			auto: true
+			auto: true,
+			pause: 8000,
 		});
 
 		/*
