@@ -42,7 +42,7 @@ return [
          */
         'defaults' => [
           'card'        => 'Private server Aion',
-          'site'        => '@Real_Aion',
+          'site'        => '@Server_Aion',
         ]
     ]
 ];

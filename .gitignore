@@ -24,6 +24,7 @@ yarn-error.log
 
 ########## Aion ##########
 /config/aion.php
+/config/seotools.php
 
 ########## Eclipse ##########
 
