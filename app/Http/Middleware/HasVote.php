@@ -2,11 +2,10 @@
 
 use App\Models\Loginserver\AccountData;
 use App\Models\Loginserver\AccountVote;
-use Carbon\Carbon;
-use Closure;
-use Illuminate\Support\Facades\App;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
+use Closure;
 
 class HasVote {
 
@@ -28,7 +27,7 @@ class HasVote {
 
             foreach ($votesInConfig as $key => $value) {
 
-                if($referer === $value['referer']){
+                if(Str::contains($referer, $value['referer'])) {
                     $vote = AccountVote::where('account_id', $accountId)->where('add', 0)->where('site', $key)->first();
 
                     if($vote){
