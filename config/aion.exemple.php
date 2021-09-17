@@ -140,6 +140,7 @@ return [
     // Vote System
     'vote' => [
         'activated'            => true, // You can activate or not the vote system
+        'check'                => true, // Enable system to verify if the user has realy vote
         'boost'                => false,
         'boost_value'          => 50,
         'shop_points_per_vote' => 100,

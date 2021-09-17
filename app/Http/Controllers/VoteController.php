@@ -6,6 +6,7 @@ use Carbon\Carbon;
 
 use App\Http\Requests;
 
+use App\Models\Loginserver\AccountData;
 use App\Models\Loginserver\AccountVote;
 
 use Illuminate\Support\Facades\Config;
@@ -48,6 +49,13 @@ class VoteController extends Controller {
             } else {
                 return redirect(route('home'))->with('error', Lang::get('flashMessage.vote.wait_time'));
             }
+        }
+        
+        if(!config('aion.vote.check')) {
+            $pointsPerVote  = (!Config::get('aion.vote.boost')) ? Config::get('aion.vote.shop_points_per_vote') : Config::get('aion.vote.shop_points_per_vote') + Config::get('aion.vote.boost_value');
+            AccountData::IncrementVoteCount($accountId);
+            AccountData::AddShopPoints($accountId, $pointsPerVote);
+            AccountVote::where('account_id', $accountId)->where('add', 0)->where('site', $id)->update(['add' => 1]);
         }
 
         return redirect($votesLinks[$id]['link']);
