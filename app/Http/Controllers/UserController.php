@@ -11,6 +11,7 @@ use App\Models\Webserver\Pages;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Lang;
 use TimeHunter\LaravelGoogleReCaptchaV3\Facades\GoogleReCaptchaV3;
 
@@ -57,6 +58,8 @@ class UserController extends Controller
         ]);
 
         $this->createSession($user);
+        
+        DB::connection('gameserver')->table('account_locale')->insert(['account_id' => $user->id, 'locale' => $this->language]);
 
         return redirect()->route('user.account')->with('success', Lang::get('flashMessage.user.subscribe_and_logged'));
 
