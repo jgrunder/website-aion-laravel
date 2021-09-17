@@ -24,7 +24,7 @@ Route::pattern('accountId', '[0-9]+');
 /**
  * ROUTES
  */
-Route::get('/', ['as' => 'home', 'uses'   => 'HomeController@index']);
+Route::get('/', ['as' => 'home', 'uses'   => 'HomeController@index', 'middleware' => 'vote']);
 Route::get('/reset-password/{token}/{name}', ['as' => 'resetpassword', 'uses' => 'LostPasswordController@reset']);
 Route::get('/news/{slug}/{id}', ['as' => 'news', 'uses' => 'HomeController@news']);
 Route::get('/vote/{id}', ['as' => 'vote', 'uses' => 'VoteController@index', 'middleware' => 'connected']);
