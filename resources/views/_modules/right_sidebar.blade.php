@@ -17,7 +17,7 @@
         @foreach(Config::get('aion.vote.links') as $key => $vote)
 
           @if(Session::has('connected') && $accountVotes[$key]['status'])
-              <a href="{{ URL::route('vote', $key) }}">{{Lang::get('all.vote.vote')}} {{$vote['name']}}</a>
+              <p><a href="{{ URL::route('vote', $key) }}">{{Lang::get('all.vote.vote')}} {{$vote['name']}}</a></p>
           @elseif (Session::has('connected') && !$accountVotes[$key]['status'])
               <p>
                   {{$vote['name']}} <br>
@@ -29,7 +29,7 @@
 
               </p>
           @else
-              <a href="{{$vote['link']}}">{{Lang::get('all.vote.vote')}} {{$vote['name']}}</a>
+              <p><a href="{{$vote['link']}}">{{Lang::get('all.vote.vote')}} {{$vote['name']}}</a></p>
           @endif
 
         @endforeach
