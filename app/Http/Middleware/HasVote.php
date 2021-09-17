@@ -27,7 +27,7 @@ class HasVote {
 
             foreach ($votesInConfig as $key => $value) {
 
-                if(Str::contains($referer, $value['referer'])) {
+                if(Str::contains($value['referer'], $referer)) {
                     $vote = AccountVote::where('account_id', $accountId)->where('add', 0)->where('site', $key)->first();
 
                     if($vote){
