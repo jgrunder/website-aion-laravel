@@ -20,8 +20,8 @@ class PageController extends Controller {
     {
         // SEO
         SEOMeta::setTitle(Lang::get('seo.joinus.title'));
-        SEOMeta::setDescription(Lang::get('seo.joinus.description'));
-        OpenGraph::setDescription(Lang::get('seo.joinus.description'));
+        SEOMeta::setDescription(Lang::get('seo.joinus.description', ['name' => config('aion.website_name')]));
+        OpenGraph::setDescription(Lang::get('seo.joinus.description', ['name' => config('aion.website_name')]));
 
         $content = Pages::where('page_name', '=', 'joinus')->first([$this->language]);
 
@@ -88,8 +88,8 @@ class PageController extends Controller {
     {
         // SEO
         SEOMeta::setTitle(Lang::get('seo.team.title'));
-        SEOMeta::setDescription(Lang::get('seo.team.description'));
-        OpenGraph::setDescription(Lang::get('seo.team.description'));
+        SEOMeta::setDescription(Lang::get('seo.team.description', ['name' => config('aion.website_name')]));
+        OpenGraph::setDescription(Lang::get('seo.team.description', ['name' => config('aion.website_name')]));
 
         $content = Pages::where('page_name', '=', 'team')->first([$this->language]);
 
@@ -118,8 +118,8 @@ class PageController extends Controller {
     {
         // SEO
         SEOMeta::setTitle(Lang::get('seo.rates.title'));
-        SEOMeta::setDescription(Lang::get('seo.rates.description'));
-        OpenGraph::setDescription(Lang::get('seo.rates.description'));
+        SEOMeta::setDescription(Lang::get('seo.rates.description', ['name' => config('aion.website_name')]));
+        OpenGraph::setDescription(Lang::get('seo.rates.description', ['name' => config('aion.website_name')]));
 
         $content = Pages::where('page_name', '=', 'rates')->first([$this->language]);
 

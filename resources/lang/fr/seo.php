@@ -3,7 +3,7 @@
 return [
     'home'            => [
         'title'       => "Accueil",
-        'description' => "Serveur privé Aion fun et PVP stable et performant en version 4.9"
+        'description' => "Serveur privé Aion fun et PVP stable et performant en version :version"
     ],
     'news'            => [
         'title'       => "Article"
@@ -22,7 +22,7 @@ return [
     ],
     'joinus'          => [
         'title'       => "Nous rejoindre",
-        'description' => "Vous souhaitez nous rejoindre ? Pas de soucis, cette page vous explique pas à pas comment rejoindre le serveur RealAion !"
+        'description' => "Vous souhaitez nous rejoindre ? Pas de soucis, cette page vous explique pas à pas comment rejoindre le serveur :name !"
     ],
     'teamspeak'       => [
         'title'       => "Teamspeak",
@@ -38,7 +38,7 @@ return [
     ],
     'team'            => [
         'title'       => "Equipe",
-        'description' => "Le serveur RealAion ne vit que grâce à ses bénévoles qui sont présents pour vous aider en cas de besoin !"
+        'description' => "Le serveur :name ne vit que grâce à ses bénévoles qui sont présents pour vous aider en cas de besoin !"
     ],
     'error'           => [
         'title'       => "Erreur",
@@ -46,7 +46,7 @@ return [
     ],
     'rates'           => [
         'title'       => "Rates du serveur",
-        'description' => "Retrouvez les informations à propos du serveur Realaion comme les rates du serveur."
+        'description' => "Retrouvez les informations à propos du serveur :name comme les rates du serveur."
     ],
 
     'online'          => [

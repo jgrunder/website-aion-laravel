@@ -19,8 +19,8 @@ class HomeController extends Controller
 	{
         // SEO
         SEOMeta::setTitle(Lang::get('seo.home.title'));
-        SEOMeta::setDescription(Lang::get('seo.home.description'));
-        OpenGraph::setDescription(Lang::get('seo.home.description'));
+        SEOMeta::setDescription(Lang::get('seo.home.description', ['version' => config('aion.aion_version')]));
+        OpenGraph::setDescription(Lang::get('seo.home.description', ['version' => config('aion.aion_version')]));
 
         $news = News::orderBy('created_at', 'DESC')->paginate(3);
 

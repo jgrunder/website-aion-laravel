@@ -3,7 +3,7 @@
 return [
     'home'            => [
         'title'       => "Home",
-        'description' => "Aion Private server 4.9 Gameforge"
+        'description' => "Aion Private server :version Gameforge"
     ],
     'news'            => [
         'title'       => "News"
@@ -22,7 +22,7 @@ return [
     ],
     'joinus'          => [
         'title'       => "Join us",
-        'description' => "Do you wish join us ? Don’t worry, this page will explain you how join the RealAion!"
+        'description' => "Do you wish join us ? Don’t worry, this page will explain you how join the :name!"
     ],
     'teamspeak'       => [
         'title'       => "Teamspeak",
@@ -46,7 +46,7 @@ return [
     ],
     'rates'           => [
         'title'       => "Server rates",
-        'description' => "Find some informations about the server like the Reals gain"
+        'description' => "Find some informations about the server like the :name gain"
     ],
     'online'          => [
         'title'       => "Online players",
@@ -62,7 +62,7 @@ return [
     ],
     'lost_password'   => [
         'title'       => "Lost password ?",
-        'description' => "Lost your password to connect to the server RealAion? Do not panic, we can find him!"
+        'description' => "Lost your password to connect to the server :name? Do not panic, we can find him!"
     ],
 
 ];
