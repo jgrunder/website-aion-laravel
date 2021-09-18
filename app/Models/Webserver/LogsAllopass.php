@@ -12,7 +12,7 @@ class LogsAllopass extends Model {
 
     public static function check($id_allopass)
     {
-        return LogsAllopass::where('id_allopass', '=', $id_allopass)->first();
+        return LogsAllopass::where('id_allopass', $id_allopass)->first();
     }
 
     public static function insert($id_allopass, $id_account)

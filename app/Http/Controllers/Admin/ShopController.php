@@ -127,7 +127,7 @@ class ShopController extends Controller
 
       // When try to edit item
       if($request->isMethod('post')){
-          $itemSaved = ShopItem::where('id_item', '=', $id)->update([
+          $itemSaved = ShopItem::where('id_item', $id)->update([
               'id_sub_category' => $request->input('id_sub_category'),
               'id_item'         => $request->input('id_item'),
               'name'            => $request->input('name'),
@@ -143,7 +143,7 @@ class ShopController extends Controller
 
       }
 
-      $item  = ShopItem::where('id_item', '=', $id)->first();
+      $item  = ShopItem::where('id_item', $id)->first();
 
       // List all Sub-Categories group by Category
       $categories = ShopCategory::all()->reduce(function($acc, $cat) {
@@ -171,7 +171,7 @@ class ShopController extends Controller
   public function ItemsInSubCategory($id)
   {
       $subCategory = ShopSubCategory::find($id);
-      $items = ShopItem::where('id_sub_category', '=', $id)->paginate(20);
+      $items = ShopItem::where('id_sub_category', $id)->paginate(20);
 
       return view('admin.shop.items', [
           'results' => $items,

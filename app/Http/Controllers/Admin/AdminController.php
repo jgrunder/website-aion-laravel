@@ -125,13 +125,13 @@ class AdminController extends Controller
     {
 
         if ($request->isMethod('POST')){
-            Pages::where('page_name', '=', $name)->update([
+            Pages::where('page_name', $name)->update([
                 'fr'     => $request->input('fr'),
                 'en'     => $request->input('en')
             ]);
         }
 
-        $page = Pages::where('page_name', '=', $name)->first();
+        $page = Pages::where('page_name', $name)->first();
 
         return view('admin.page', [
            'page' => $page
@@ -152,7 +152,7 @@ class AdminController extends Controller
             $shopPoints   = $request->input('points');
             $reason       = $request->input('reason');
 
-            $account = AccountData::where('name', '=', $account_name)->first();
+            $account = AccountData::where('name', $account_name)->first();
 
             if($account !== null){
 
@@ -164,7 +164,7 @@ class AdminController extends Controller
                     'points'        => $shopPoints
                 ]);
 
-                AccountData::where('name', '=', $account_name)->increment('shop_points', $shopPoints);
+                AccountData::where('name', $account_name)->increment('shop_points', $shopPoints);
 
                 $success = "Le compte a été crédité de ".$shopPoints;
             } else {

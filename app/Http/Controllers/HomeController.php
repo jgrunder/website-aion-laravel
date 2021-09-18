@@ -34,7 +34,7 @@ class HomeController extends Controller
      */
     public function news($slug, $id)
     {
-      $news = News::where('slug', '=', $slug)->where('id', '=', $id)->get();
+      $news = News::where('slug', $slug)->where('id', $id)->get();
 
       // News don't exist
       if($news->count() == 0){

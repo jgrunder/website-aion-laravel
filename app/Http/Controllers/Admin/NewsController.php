@@ -22,7 +22,7 @@ class NewsController extends Controller
   public function index()
   {
     $topItemsBuy      = ShopItem::orderBy('purchased', 'desc')->take(5)->get();
-    $shopHistoryToday = ShopHistory::where('created_at', '=', Carbon::today())->count();
+    $shopHistoryToday = ShopHistory::where('created_at', Carbon::today())->count();
     $shopHistoryTotal = ShopHistory::count();
     $accountsCount    = AccountData::count();
 
@@ -65,7 +65,7 @@ class NewsController extends Controller
       if($request->isMethod('post')){
 
           $slug       = Str::slug($request->input('title'), '-');
-          $article    = News::where('slug', '=', $slug)->first();
+          $article    = News::where('slug', $slug)->first();
 
           if($article === null){
               News::create([
@@ -106,7 +106,7 @@ class NewsController extends Controller
 
       }
       else {
-          News::where('id', '=', $id)->update([
+          News::where('id', $id)->update([
               'title'         => $request->input('title'),
               'slug'          => Str::slug($request->input('title'), '-'),
               'text'          => $request->input('content')

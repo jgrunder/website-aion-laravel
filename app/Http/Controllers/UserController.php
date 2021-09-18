@@ -26,7 +26,7 @@ class UserController extends Controller
         // SEO
         SEOMeta::setTitle(Lang::get('seo.subscribe.title'));
 
-        $content = Pages::where('page_name', '=', 'subscribe')->first([$this->language]);
+        $content = Pages::where('page_name', 'subscribe')->first([$this->language]);
 
         return view('user.subscribe', [
             'content' => $content[$this->language]
@@ -112,7 +112,7 @@ class UserController extends Controller
         // SEO
         SEOMeta::setTitle(Lang::get('seo.account.title'));
 
-        $players        = Player::legion()->where('account_id', '=', session()->get('user.id'))->get();
+        $players        = Player::legion()->where('account_id', session()->get('user.id'))->get();
         $accountLevel   = AccountLevel::where('account_id', session()->get('user.id'))->first();
         $levels         = Config::get('aion.levels');
 

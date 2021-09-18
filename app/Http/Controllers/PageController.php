@@ -23,7 +23,7 @@ class PageController extends Controller {
         SEOMeta::setDescription(Lang::get('seo.joinus.description', ['name' => config('aion.website_name')]));
         OpenGraph::setDescription(Lang::get('seo.joinus.description', ['name' => config('aion.website_name')]));
 
-        $content = Pages::where('page_name', '=', 'joinus')->first([$this->language]);
+        $content = Pages::where('page_name', 'joinus')->first([$this->language]);
 
         return view('page.joinus', [
             'content' => $content[$this->language]
@@ -40,7 +40,7 @@ class PageController extends Controller {
         SEOMeta::setDescription(Lang::get('seo.teamspeak.description'));
         OpenGraph::setDescription(Lang::get('seo.teamspeak.description'));
 
-        $content = Pages::where('page_name', '=', 'teamspeak')->first([$this->language]);
+        $content = Pages::where('page_name', 'teamspeak')->first([$this->language]);
 
         return view('page.teamspeak', [
             'content' => $content[$this->language]
@@ -57,7 +57,7 @@ class PageController extends Controller {
         SEOMeta::setDescription(Lang::get('seo.discord.description'));
         OpenGraph::setDescription(Lang::get('seo.discord.description'));
         
-        $content = Pages::where('page_name', '=', 'discord')->first([$this->language]);
+        $content = Pages::where('page_name', 'discord')->first([$this->language]);
         
         return view('page.discord', [
             'content' => $content[$this->language]
@@ -74,7 +74,7 @@ class PageController extends Controller {
         SEOMeta::setDescription(Lang::get('seo.rules.description'));
         OpenGraph::setDescription(Lang::get('seo.rules.description'));
 
-        $content = Pages::where('page_name', '=', 'rules')->first([$this->language]);
+        $content = Pages::where('page_name', 'rules')->first([$this->language]);
 
         return view('page.rules', [
             'content' => $content[$this->language]
@@ -91,7 +91,7 @@ class PageController extends Controller {
         SEOMeta::setDescription(Lang::get('seo.team.description', ['name' => config('aion.website_name')]));
         OpenGraph::setDescription(Lang::get('seo.team.description', ['name' => config('aion.website_name')]));
 
-        $content = Pages::where('page_name', '=', 'team')->first([$this->language]);
+        $content = Pages::where('page_name', 'team')->first([$this->language]);
 
         return view('page.team', [
             'content' => $content[$this->language]
@@ -121,7 +121,7 @@ class PageController extends Controller {
         SEOMeta::setDescription(Lang::get('seo.rates.description', ['name' => config('aion.website_name')]));
         OpenGraph::setDescription(Lang::get('seo.rates.description', ['name' => config('aion.website_name')]));
 
-        $content = Pages::where('page_name', '=', 'rates')->first([$this->language]);
+        $content = Pages::where('page_name', 'rates')->first([$this->language]);
 
         return view('page.rates', [
             'content' => $content[$this->language]

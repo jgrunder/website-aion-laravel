@@ -67,11 +67,11 @@ class ViewServiceProvider extends ServiceProvider
     private function countPlayersOnline()
     {
         $count_asmodians = Cache::remember('online_number_asmodians', Config::get('aion.cache.online_number'), function() {
-            return Player::online()->where('race', '=', 'ASMODIANS')->count();
+            return Player::online()->where('race', 'ASMODIANS')->count();
         });
             
         $count_elyos = Cache::remember('online_number_elyos', Config::get('aion.cache.online_number'), function() {
-            return Player::online()->where('race', '=', 'ELYOS')->count();
+            return Player::online()->where('race', 'ELYOS')->count();
         });
             
         View::share('countPlayersOnlineAsmodians', $count_asmodians);

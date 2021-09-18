@@ -32,13 +32,13 @@ class LostPasswordController extends Controller
         if($request->isMethod('post')) {
 
             $email   = $request->input('email');
-            $account = AccountData::where('email', '=', $email)->first();
+            $account = AccountData::where('email', $email)->first();
 
             if($account !== null) {
 
                 // We generate a token and add it to database
                 $token = uniqid();
-                AccountData::where('email', '=', $email)->update(['token' => $token]);
+                AccountData::where('email', $email)->update(['token' => $token]);
 
                 // We send a beautiful email
                 Mail::send('lostpassword.email_lost_password_1', ['account' => $account, 'link' => url('reset-password', [$token, $account->name])], function($m) use ($account) {
@@ -67,12 +67,12 @@ class LostPasswordController extends Controller
 
         $success = null;
         $errors  = null;
-        $account = AccountData::where('name', '=', $name)->where('token', '=', $token)->first();
+        $account = AccountData::where('name', $name)->where('token', $token)->first();
 
         if($account !== null) {
 
             // We update the password and reset the token
-            AccountData::where('name', '=', $name)->update([
+            AccountData::where('name', $name)->update([
                 'password' => base64_encode(sha1($token, true)),
                 'token'    => null
             ]);

@@ -22,7 +22,7 @@ class ShopController extends Controller {
     public function index()
     {
         $top_purchased  = ShopItem::where('purchased', '>', 0)->orderBy('purchased', 'DESC')->take(6)->get();
-        $accountLevel   = AccountLevel::where('account_id', '=', Session::get('user.id'))->first();
+        $accountLevel   = AccountLevel::where('account_id', Session::get('user.id'))->first();
 
         return view('shop.index', [
           'accountLevel'    => $accountLevel,
@@ -44,7 +44,7 @@ class ShopController extends Controller {
 			return redirect(route('shop'))->with('error', Lang::get('flashMessage.shop.no_search_empty'));
         }
 		
-        $accountLevel = AccountLevel::where('account_id', '=', Session::get('user.id'))->first();
+        $accountLevel = AccountLevel::where('account_id', Session::get('user.id'))->first();
         $searchValue = $request->input('search_value');
         $searchType  = 'shop_item_name';
 
@@ -69,8 +69,8 @@ class ShopController extends Controller {
      */
     public function category($id)
     {
-        $items          = ShopItem::where('id_sub_category', '=', $id)->paginate(12);
-        $accountLevel   = AccountLevel::where('account_id', '=', Session::get('user.id'))->first();
+        $items          = ShopItem::where('id_sub_category', $id)->paginate(12);
+        $accountLevel   = AccountLevel::where('account_id', Session::get('user.id'))->first();
 
         if($items->count() === 0) {
             return redirect(route('shop'))->with('error', Lang::get('flashMessage.shop.fail_category_id'));
@@ -91,7 +91,7 @@ class ShopController extends Controller {
      */
     public function addToCart($id)
     {
-        $item            = ShopItem::where('id_item', '=', $id)->first();
+        $item            = ShopItem::where('id_item', $id)->first();
         $item_in_cart    = Cart::search(['id' => $id]);
         $content_in_cart = Cart::content();
 
@@ -117,7 +117,7 @@ class ShopController extends Controller {
      */
     public function removeToCart($id)
     {
-        $item               = ShopItem::where('id_item', '=', $id)->first();
+        $item               = ShopItem::where('id_item', $id)->first();
         $item_in_cart       = Cart::search(['id' => $id]);
         $content_in_cart    = Cart::content();
         $newQt              = $content_in_cart[$item_in_cart[0]]['qty'] - $item->quantity;
@@ -149,7 +149,7 @@ class ShopController extends Controller {
             return redirect()->back()->with('error', Lang::get('flashMessage.shop.not_shop_points'));
         }
 
-        $players        = Player::where('account_id', '=', Session::get('user.id'))->get();
+        $players        = Player::where('account_id', Session::get('user.id'))->get();
         $players_array  = [];
 
         foreach($players as $player){
@@ -171,12 +171,12 @@ class ShopController extends Controller {
     public function buy(Request $request)
     {
         $player_id  = $request->input('player_id');
-        $player     = Player::where('id', '=', $player_id)->first();
+        $player     = Player::where('id', $player_id)->first();
         $total      = Cart::total();
         $account_id = Session::get('user.id');
 
         foreach(Cart::content() as $item){
-            ShopItem::where('id_item', '=', $item->options['id_item'])->increment('purchased', 1);
+            ShopItem::where('id_item', $item->options['id_item'])->increment('purchased', 1);
             MyShop::create([
               'item'      => $item->options['id_item'],
               'nb'        => $item->options['quantity'] * $item->qty,
