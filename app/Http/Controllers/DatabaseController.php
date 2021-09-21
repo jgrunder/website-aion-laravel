@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
-
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Cookie;
 
 class DatabaseController extends Controller {
 
@@ -14,7 +11,7 @@ class DatabaseController extends Controller {
      */
     public function item($id)
     {
-        $key = 'item_'.$id.'_'.Cookie::get('language');
+        $key = 'item_'.$id.'_'.$this->language;
 
         if(Cache::has($key)){
             echo Cache::get($key);
@@ -23,12 +20,12 @@ class DatabaseController extends Controller {
             
             if(config('aion.aion_version') == '2.7') {
                 
-                $value = file_get_contents('https://aiondatabase.info/'.Cookie::get('language').'/tip/'.$id);
+                $value = file_get_contents('https://aiondatabase.info/'.$this->language.'/tip/'.$id);
                 $value = str_replace('src="/', 'src="https://aiondatabase.info/', $value);
                 
             } else {
                 
-                $value = file_get_contents('http://aiondatabase.net/tip.php?id=item--'.$id.'&l='.Cookie::get('language').'&nf=on');
+                $value = file_get_contents('http://aiondatabase.net/tip.php?id=item--'.$id.'&l='.$this->language.'&nf=on');
                 $value = str_replace('src="/', 'src="http://aiondatabase.net/', $value);
                 
             }
