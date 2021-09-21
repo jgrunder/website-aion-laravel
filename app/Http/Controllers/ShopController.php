@@ -92,15 +92,18 @@ class ShopController extends Controller {
     public function addToCart($id)
     {
         $item            = ShopItem::where('id_item', $id)->first();
-        $item_in_cart    = Cart::search(['id' => $id]);
+        $item_in_cart    = Cart::search(function ($cartItem, $rowId) use ($id) {
+                            return $cartItem->id === $id;
+                           });
+        
         $content_in_cart = Cart::content();
 
         if($item->count() > 0) {
 
-            if(!$item_in_cart) {
+            if($item_in_cart->count() === 0) {
                 Cart::add($id, $item->name, 1, $item->price, ['id_item' => $id, 'quantity' => $item->quantity]); // Add new Item in Cart
             } else {
-                Cart::update($item_in_cart[0], $content_in_cart[$item_in_cart[0]]['qty'] + 1); // Update Quantity
+                Cart::update($item_in_cart->first()->rowId, $content_in_cart->get($item_in_cart->first()->rowId)->qty + 1); // Update Quantity
             }
 
             return view('_modules.cart', [
@@ -118,14 +121,16 @@ class ShopController extends Controller {
     public function removeToCart($id)
     {
         $item               = ShopItem::where('id_item', $id)->first();
-        $item_in_cart       = Cart::search(['id' => $id]);
+        $item_in_cart       = Cart::search(function ($cartItem, $rowId) use ($id) {
+                                return $cartItem->id === $id;
+                            });
         $content_in_cart    = Cart::content();
-        $newQt              = $content_in_cart[$item_in_cart[0]]['qty'] - $item->quantity;
-
+        $newQt              = $content_in_cart->get($item_in_cart->first()->rowId)->qty - $item->quantity;
+        
         if($newQt <= 0){
-            Cart::remove($item_in_cart[0]);
+            Cart::remove($item_in_cart->first()->rowId);
         } else {
-            Cart::update($item_in_cart[0], $content_in_cart[$item_in_cart[0]]['qty'] - $item->quantity);
+            Cart::update($item_in_cart->first()->rowId, $content_in_cart->get($item_in_cart->first()->rowId)->qty - $item->quantity);
         }
 
         return view('_modules.cart', [
