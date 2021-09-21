@@ -6,9 +6,9 @@
         <div class="container_left">
             <div class="news">
                 <div class="news_top">
-                    <h2>{!! Lang::get('all.shop.title') !!} 
-					@if(isset($top)) 
-						({!! Lang::get('all.shop.best_sales') !!}) 
+                    <h2>{!! Lang::get('all.shop.title') !!}
+					@if(isset($top))
+						({!! Lang::get('all.shop.best_sales') !!})
 					@elseif(isset($searchValue))
 						({!! Lang::get('all.shop.search_result') !!} "{{$searchValue}}" )
 					@endif</h2>
@@ -19,8 +19,8 @@
                         <div class="item_shop">
 
                             <h3>
-                                <img src="" alt="">
-                                <a href="http://aiondatabase.net/{{Cookie::get('language')}}/item/{{$item->id_item}}" target="_blank" class="databaseItem quality-{{\Illuminate\Support\Str::lower($item->quality_item)}}" data-id="{{$item->id_item}}">
+                                <!-- <img src="/images/scroll01.png" alt=""> -->
+                                <a href="https://aiondatabase.info/{{Cookie::get('language')}}/item/{{$item->id_item}}" target="_blank" class="databaseItem quality-{{\Illuminate\Support\Str::lower($item->quality_item)}}" data-id="{{$item->id_item}}">
                                     {{\Illuminate\Support\Str::limit($item->name, 20, '...')}}
                                 </a>
                             </h3>

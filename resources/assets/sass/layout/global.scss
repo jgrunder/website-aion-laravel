@@ -248,14 +248,15 @@ div.flash_messages {
 }
 
 .information_item {
-	width: 350px;
+	width: 420px;
 	position: absolute;
 	z-index: 10000;
 	padding: 5px;
 	font-size: 0.8rem;
-	background-color: rgba(black, 0.8);
+	background-color: #212d3d;
 	border-radius: 5px;
 	color: white;
+	line-height: normal;
 	table {
 		text-align: left !important;
 		border-collapse: initial;
