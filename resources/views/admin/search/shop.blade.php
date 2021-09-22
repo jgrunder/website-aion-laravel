@@ -23,7 +23,7 @@
               </a>
             </td>
             <td>
-                <a href="http://aiondatabase.net/en/item/{{$result->id_item}}" target="_blank">{{$result->name}}</a>
+                <a href="https://aiondatabase.info/{{Cookie::get('language', 'en')}}/item/{{$result->id_item}}" target="_blank">{{$result->name}}</a>
             </td>
             <td>{{$result->quantity}}</td>
             <td>{{$result->price}}</td>
