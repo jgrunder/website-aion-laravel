@@ -22,7 +22,7 @@
 
                 <div class="form-group">
                     {!! Form::label('id_item', "Item's ID") !!}
-                    {!! Form::input('number', 'id_item', null, ['placeholder' => "100001684", 'class' => 'form-control', 'required' => 'required', 'id' => 'idItem']) !!}
+                    {!! Form::input('number', 'id_item', null, ['placeholder' => "ID de l'objet à ajouter", 'class' => 'form-control', 'required' => 'required', 'id' => 'idItem']) !!}
                 </div>
 
                 <div class="form-group">
@@ -32,22 +32,22 @@
 
                 <div class="form-group">
                     {!! Form::label('name', "Item's name") !!}
-                    {!! Form::text('name', null, ['placeholder' => "Épée de gouverneur gardien", 'class' => 'form-control', 'required' => 'required', 'id' => 'nameItem']) !!}
+                    {!! Form::text('name', null, ['class' => 'form-control', 'required' => 'required', 'id' => 'nameItem']) !!}
                 </div>
 
                 <div class="form-group">
                     {!! Form::label('price', "Price per unit") !!}
-                    {!! Form::input('number', 'price', null, ['placeholder' => "200", 'class' => 'form-control', 'required' => 'required']) !!}
+                    {!! Form::input('number', 'price', 200, ['class' => 'form-control', 'required' => 'required']) !!}
                 </div>
 
                 <div class="form-group">
                     {!! Form::label('quantity', "Quantity") !!}
-                    {!! Form::input('number', 'quantity', null, ['placeholder' => "1", 'class' => 'form-control', 'required' => 'required']) !!}
+                    {!! Form::input('number', 'quantity', 1, ['class' => 'form-control', 'required' => 'required']) !!}
                 </div>
 
                 <div class="form-group">
                   {!! Form::label('preview', "Item's preview") !!}
-                  {!! Form::select('preview', ['1' => 'Yes', '0' => 'No']) !!}
+                  {!! Form::select('preview', ['0' => 'No', '1' => 'Yes']) !!}
                 </div>
 
                 @if(Config::get('aion.enable_account_level'))
