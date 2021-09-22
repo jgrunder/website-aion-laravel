@@ -23,6 +23,13 @@
                 <div class="form-group">
                     {!! Form::label('id_item', "Item's ID") !!}
                     {!! Form::input('number', 'id_item', null, ['placeholder' => "ID de l'objet à ajouter", 'class' => 'form-control', 'required' => 'required', 'id' => 'idItem']) !!}
+                    @if (count($errors->get('id_item')) > 0)
+                      <span style="color: red;">
+                          @foreach ($errors->get('id_item') as $message)
+                            {{$message}}
+                          @endforeach
+                      </span>
+                    @endif
                 </div>
 
                 <div class="form-group">

@@ -81,6 +81,17 @@ class ShopController extends Controller
 
       // When try to add item
       if($request->isMethod('post')) {
+          
+          $request->validate([
+              'id_item'         => 'required|unique:App\Models\Webserver\ShopItem',
+              'id_sub_category' => 'required',
+              'quality_item'    => 'required',
+              'name'            => 'required',
+              'price'           => 'required',
+              'quantity'        => 'required',
+              'preview'         => 'required',
+          ]);
+          
           $itemAdded = ShopItem::create([
               'id_sub_category' => $request->input('id_sub_category'),
               'id_item'         => $request->input('id_item'),
