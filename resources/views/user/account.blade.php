@@ -27,7 +27,7 @@
 
                     <h2>{{ Lang::get('all.my_account.shop') }} :</h2>
 
-                    {{ Lang::get('all.my_account.on_your_account') }} <strong class="text-blue">{{$user['shop_points']}} Shop's Points</strong>
+                    {{ Lang::get('all.my_account.on_your_account') }} <strong class="text-blue">{{$user['shop_points']}} {{config('aion.vote.shop_point_name')}}</strong>
                     @if(Config::get('aion.enable_account_level'))
                         {{ Lang::get('all.my_account.and_you_spent') }} <strong class="text-blue">@if(!$level) 0€ @else {{$level['total'].'€'}} @endif </strong><br>
                         {{ Lang::get('all.my_account.to_achieve_the') }}  <strong class="text-blue">{{$nextLevel['level']}}</strong> {{ Lang::get('all.my_account.must_spend') }} <strong class="text-blue">{{$nextLevel['price']}}€</strong>

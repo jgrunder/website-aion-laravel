@@ -13,9 +13,9 @@
                     <table>
                         <thead>
                         <tr>
-                            <th width="45%">{!! Lang::get('all.shop.name') !!}</th>
+                            <th width="75%">{!! Lang::get('all.shop.name') !!}</th>
                             <th>{!! Lang::get('all.shop.price') !!}</th>
-                            <th width="15%">{!! Lang::get('all.shop.qt') !!}</th>
+                            <th width="10%">{!! Lang::get('all.shop.qt') !!}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -29,9 +29,7 @@
                         </tbody>
                         <!-- Total -->
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td style="font-weight: bold">{{number_format($total, 0, '.', '.')}} Points's Shop</td>
+                            <td colspan="3" style="font-weight: bold">Total : {{number_format($total, 0, '.', '.')}} {{config('aion.vote.shop_point_name')}}</td>
                         </tr>
                     </table>
 

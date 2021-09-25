@@ -24,7 +24,7 @@
                 {!! Form::input('hidden', 'business', Config::get('aion.paypal.email')) !!}
                 {!! Form::input('hidden', 'notify_url', Config::get('app.url').'/paypal-ipn') !!}
                 {!! Form::input('hidden', 'return', Config::get('app.url').'/paypal-valid') !!}
-                {!! Form::input('hidden', 'item_name', Config::get('aion.paypal.points_per_euro')." Shop's Points", ['id' => 'paypal_name']) !!}
+                {!! Form::input('hidden', 'item_name', Config::get('aion.paypal.points_per_euro')." {{config('aion.vote.shop_point_name')}}", ['id' => 'paypal_name']) !!}
                 {!! Form::input('hidden', 'quantity', '1') !!}
                 {!! Form::input('hidden', 'currency_code', Config::get('aion.paypal.currency_code')) !!}
                 {!! Form::input('hidden', 'amount', 1, ['id' => 'money']) !!}
@@ -34,7 +34,7 @@
 
                 <br> <br>
 
-                <center id="money_need">{{Lang::get('all.paypal.buy')}} {{Config::get('aion.paypal.points_per_euro')}} Shop's Points {{Lang::get('all.paypal.for')}} 1{{Config::get('aion.paypal.currency_display')}}</center>
+                <center id="money_need">{{Lang::get('all.paypal.buy')}} {{Config::get('aion.paypal.points_per_euro')}} {{config('aion.vote.shop_point_name')}} {{Lang::get('all.paypal.for')}} 1{{Config::get('aion.paypal.currency_display')}}</center>
                 <input type="submit" class="btn btn-primary" value="{{Lang::get('all.paypal.buy')}}">
 
               {!! Form::close() !!}
@@ -63,8 +63,8 @@
                     var moneyNeed = $(this).val() / Number("{{ Config::get('aion.paypal.points_per_euro') }}");
                     var uid		  = $('#user_id').val();
 
-                    $('#money_need').text("{{Lang::get('all.paypal.buy')}} "+ nbTool +" Shop's Points {{Lang::get('all.paypal.for')}} "+ moneyNeed +"€");
-                    $('#paypal_name').val(nbTool+" Shop's Points");
+                    $('#money_need').text("{{Lang::get('all.paypal.buy')}} "+ nbTool +" {{config('aion.vote.shop_point_name')}} {{Lang::get('all.paypal.for')}} "+ moneyNeed +"€");
+                    $('#paypal_name').val(nbTool+" {{config('aion.vote.shop_point_name')}}");
                     $('#money').val(moneyNeed);
                     $('#custom_paypal').val('points='+nbTool+'&uid='+uid);
                 });

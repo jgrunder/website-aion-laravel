@@ -20,7 +20,7 @@
         </tbody>
     </table>
 
-    <a href="{{Route('shop.summary')}}" class="btn">{{Lang::get('all.shop.buy')}} {{$total}} Points</a>
+    <a href="{{Route('shop.summary')}}" class="btn">{{Lang::get('all.shop.buy')}} {{$total}} {{config('aion.vote.shop_point_name')}}</a>
 @else
     {{Lang::get('all.shop.shopping_cart_empty')}}
 @endif

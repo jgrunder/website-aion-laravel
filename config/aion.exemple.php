@@ -144,6 +144,7 @@ return [
         'boost'                => false,
         'boost_value'          => 50,
         'shop_points_per_vote' => 100,
+        'shop_point_name'      => 'Shop Point',
         'links' => [
             [
                 'name'    => 'RPG',

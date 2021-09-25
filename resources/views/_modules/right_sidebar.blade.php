@@ -11,7 +11,7 @@
         @if(Config::get('aion.vote.boost'))
           <p>{{Lang::get('all.vote.boost')}}</p>
         @endif
-        <p>1 vote = <span class="strong">{{(!Config::get('aion.vote.boost')) ? Config::get('aion.vote.shop_points_per_vote') : Config::get('aion.vote.shop_points_per_vote') + Config::get('aion.vote.boost_value')}} Shop's Points</span></p>
+        <p>1 vote = <span class="strong">{{(!Config::get('aion.vote.boost')) ? Config::get('aion.vote.shop_points_per_vote') : Config::get('aion.vote.shop_points_per_vote') + Config::get('aion.vote.boost_value')}} {{config('aion.vote.shop_point_name')}}</span></p>
       </div>
       <div class="bloc_body center">
         @foreach(Config::get('aion.vote.links') as $key => $vote)
