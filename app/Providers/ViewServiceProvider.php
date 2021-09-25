@@ -187,30 +187,6 @@ class ViewServiceProvider extends ServiceProvider
                     'name'   => $key,
                     'status' => true
                 ];
-            } else {
-                $expiresAt  = Carbon::now()->addMinutes(5);
-                
-                try {
-                    $check = fsockopen($server['ip'], $server['port'], $errno, $errstr, 1.0);
-                    
-                    Cache::put('status.'.$key, ($check) ? true : false, $expiresAt);
-                    
-                    $serversStatus[] = [
-                        'name'   => $key,
-                        'status' => ($check) ? true : false
-                    ];
-                    
-                    fclose($check);
-                    
-                } catch (\Throwable $e) {
-                    Log::info('Server ' . $key . ' is not available');
-                    $serversStatus[] = [
-                        'name'   => $key,
-                        'status' => false
-                    ];
-                    Cache::put('status.'.$key, false, $expiresAt);
-                }
-                
             }
             
         }

@@ -32,4 +32,31 @@ class ApiController extends Controller {
         return ['html' => $data];
     }
     
+    /**
+     * GET /api/status
+     */
+    public function status()
+    {
+        $servers        = config('aion.servers');
+        $serversStatus  = [];
+        
+        foreach ($servers as $key => $server) {
+            if(!$server['enabled']) continue;
+            if(cache()->has('status.'.$key)) {
+                $serversStatus[] = [
+                    'name'   => $key,
+                    'status' => cache('status.'.$key)
+                ];
+            } elseif ($key == 'Discord') {
+                $serversStatus[] = [
+                    'name'   => $key,
+                    'status' => true
+                ];
+            }
+            
+        }
+        
+        return $serversStatus;
+    }
+    
 }
