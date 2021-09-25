@@ -59,4 +59,16 @@ class ApiController extends Controller {
         return $serversStatus;
     }
     
+    /**
+     * GET /api/slider
+     */
+    public function slider()
+    {
+        $sliders = cache('sliders');
+        
+        return view('_api.master', [
+            'slider' => $sliders
+        ]);
+    }
+    
 }
