@@ -71,6 +71,7 @@
                             <li><a href="{{Route('admin.page', 'discord')}}">Edit : Discord</a></li>
                             <li><a href="{{Route('admin.page', 'subscribe')}}">Edit : Subscribe</a></li>
                             <li><a href="{{Route('admin.page', 'rates')}}">Edit : Rates of server</a></li>
+                            <li><a href="{{Route('admin.page', 'donation')}}">Edit : Donation</a></li>
                         </ul>
                     </li>
 

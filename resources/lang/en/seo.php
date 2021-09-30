@@ -32,6 +32,10 @@ return [
         'title'       => "Discord",
         'description' => "Come on speak with us!"
     ],
+    'donation'        => [
+        'title'       => "Make a donation",
+        'description' => "Want to help :name? Make a donation to support us!"
+    ],
     'rules'           => [
         'title'       => "Rules",
         'description' => "Found our rules, and save them in your head "

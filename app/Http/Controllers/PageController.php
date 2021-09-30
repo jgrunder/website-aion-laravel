@@ -133,7 +133,16 @@ class PageController extends Controller {
      */
     public function donation()
     {
-        return view('page.donation');
+        // SEO
+        SEOMeta::setTitle(Lang::get('seo.donation.title'));
+        SEOMeta::setDescription(Lang::get('seo.donation.description', ['name' => config('aion.website_name')]));
+        OpenGraph::setDescription(Lang::get('seo.donation.description', ['name' => config('aion.website_name')]));
+        
+        $content = Pages::where('page_name', 'donation')->first([$this->language]);
+        
+        return view('page.donation', [
+            'content' => $content[$this->language]
+        ]);
     }
 
 }

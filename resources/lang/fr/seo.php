@@ -32,6 +32,10 @@ return [
         'title'       => "Discord",
         'description' => "Venez discuter sur notre serveur Discord"
     ],
+    'donation'        => [
+        'title'       => "Faire un don",
+        'description' => "Vous voulez aider :name ? Faites un don pour nous soutenir !"
+    ],
     'rules'           => [
         'title'       => "Règlement",
         'description' => "Retrouvez le règlement du serveur et gardez-le en tête pour éviter de futurs problèmes."

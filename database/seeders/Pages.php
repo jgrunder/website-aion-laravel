@@ -62,5 +62,12 @@ class Pages extends Seeder
             'fr'        => '',
             'en'        => ''
         ]);
+        
+        DB::connection('webserver')->table('pages')->insert([
+            'id'        => 8,
+            'page_name' => 'donation',
+            'fr'        => '',
+            'en'        => ''
+        ]);
     }
 }

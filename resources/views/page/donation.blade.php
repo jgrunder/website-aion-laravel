@@ -6,6 +6,7 @@
             <h1>{{Lang::get('all.nav.donate')}}</h1>
         </div>
         <div class="container_single_body center">
+            {!! $content !!}
             <a href="{{Route('allopass')}}" class="btn">Allopass</a>
             <a href="{{Route('paypal')}}" class="btn">Paypal</a>
         </div>
