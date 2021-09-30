@@ -239,6 +239,7 @@ class UserController extends Controller
         session()->put('user.pseudo', $user->pseudo);
         session()->put('user.email', $user->email);
         session()->put('user.access_level', $user->access_level);
+        session()->put('user.shop_points', $user->shop_points);
     }
 
 }
