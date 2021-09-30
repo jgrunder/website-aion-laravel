@@ -7,8 +7,8 @@
         </div>
         <div class="container_single_body center">
             {!! $content !!}
-            <a href="{{Route('allopass')}}" class="btn">Allopass</a>
-            <a href="{{Route('paypal')}}" class="btn">Paypal</a>
+            @if(config('aion.allopass.enabled'))<a href="{{Route('allopass')}}" class="btn">Allopass</a>@endif
+            @if(config('aion.paypal.enabled'))<a href="{{Route('paypal')}}" class="btn">Paypal</a>@endif
         </div>
     </div>
 @stop
