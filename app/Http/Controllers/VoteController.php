@@ -42,7 +42,7 @@ class VoteController extends Controller {
 
             $oldDate = Carbon::parse($accountVote->date);
 
-            if($oldDate->diffInHours(Carbon::now()) >= 2){
+            if($oldDate->diffInSeconds(Carbon::now()) >= $votesLinks[$id]['cooldown']){
 
                 AccountVote::where('account_id', $accountId)->where('site', $id)->update(['date' => Carbon::now(), 'add' => 0]);
 

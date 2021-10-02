@@ -134,13 +134,13 @@ class ViewServiceProvider extends ServiceProvider
                     ];
                 } else {
                     $date = Carbon::parse($vote->date);
-                    if ($date->diffInHours(Carbon::now()) >= 2) {
+                    if ($date->diffInSeconds(Carbon::now()) >= $value['cooldown']) {
                         $votesAvailable[] = [
                             'id'     => $key,
                             'status' => true
                         ];
                     } else {
-                        $diff = $date->addHours(2)->subHours(Carbon::now()->hour)->subMinutes(Carbon::now()->minute);
+                        $diff = $date->addSecond($value['cooldown'])->subHours(Carbon::now()->hour)->subMinutes(Carbon::now()->minute);
                         $votesAvailable[] = [
                             'id'            => $key,
                             'status'        => false,

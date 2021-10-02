@@ -149,12 +149,16 @@ return [
             [
                 'name'    => 'RPG',
                 'link'    => 'http://www.rpg-paradize.com/?page=vote&vote={ID}',
-                'referer' => 'http://www.rpg-paradize.com/{server-page}' // Use for check if the user has realy vote
+                'referer' => 'http://www.rpg-paradize.com/{server-page}', // Use for check if the user has realy vote
+                'cooldown'  => 7200,
+            ],
             ],
             [
                 'name'    => 'Gowonda',
                 'link'    => 'http://www.gowonda.com/vote.php?server_id={ID}',
-                'referer' => 'http://www.gowonda.com/{server_page}' // Use for check if the user has realy vote
+                'referer' => 'http://www.gowonda.com/{server_page}', // Use for check if the user has realy vote
+                'cooldown'  => 7200,
+            ],
             ],
         ]
     ],
