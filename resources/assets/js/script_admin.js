@@ -30,6 +30,15 @@ $(document).ready(function(){
 				$('#qualityItem').val(qualityItem);
 			}
 
+			if(data.includes("Réservé aux Elyséens") || data.includes("Elyos Only")) {
+				console.log("ELYOS");
+				$('#race option[value="ELYOS"]').prop('selected', 'selected');
+			}
+			else if(data.includes("Réservé aux Asmodiens") || data.includes("Asmodian Only")) {
+				console.log("ASMODIANS");
+				$('#race option[value="ASMODIANS"]').prop('selected', 'selected');
+			}
+
 		});
 
 

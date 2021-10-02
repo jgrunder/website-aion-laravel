@@ -233,6 +233,7 @@ class UserController extends Controller
      */
     private function createSession($user)
     {
+        $player = Player::where('account_id', $user->id)->first();
         session()->put('connected', true);
         session()->put('user.id', $user->id);
         session()->put('user.name', $user->name);
@@ -240,6 +241,7 @@ class UserController extends Controller
         session()->put('user.email', $user->email);
         session()->put('user.access_level', $user->access_level);
         session()->put('user.shop_points', $user->shop_points);
+        session()->put('user.race', $player->race ?? 'ALL');
     }
 
 }

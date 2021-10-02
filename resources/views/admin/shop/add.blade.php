@@ -38,6 +38,11 @@
                 </div>
 
                 <div class="form-group">
+                    {!! Form::label('race', "For a specific race?") !!}
+                    {!! Form::select('race', ['ALL' => 'ALL', 'ELYOS' => 'ELYOS', 'ASMODIANS' => 'ASMODIANS'], 'ALL', ['class' => 'form-control', 'required' => 'required', 'id' => 'race']) !!}
+                </div>
+
+                <div class="form-group">
                     {!! Form::label('name', "Item's name") !!}
                     {!! Form::text('name', null, ['class' => 'form-control', 'required' => 'required', 'id' => 'nameItem']) !!}
                 </div>

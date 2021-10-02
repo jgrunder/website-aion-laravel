@@ -8,7 +8,7 @@ class ShopItem extends Model {
 
     protected $table        = 'shop_items';
     protected $connection   = 'webserver';
-    protected $fillable     = ['id_item', 'quality_item', 'id_sub_category', 'name', 'price', 'quantity', 'level', 'preview'];
+    protected $fillable     = ['id_item', 'quality_item', 'id_sub_category', 'name', 'race', 'price', 'quantity', 'level', 'preview'];
     public $timestamps      = false;
 
     public function sub()
@@ -21,6 +21,11 @@ class ShopItem extends Model {
       return $query->with(['sub' => function($query) {
         return $query->with('category');
       }]);
+    }
+    
+    public function scopeWithRace($query, $race)
+    {
+        return $query->where('race', $race)->orWhere('race', 'ALL');
     }
 
 }

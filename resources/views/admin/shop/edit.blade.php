@@ -23,12 +23,17 @@
 
                 <div class="form-group">
                     {!! Form::label('id_item', "Item's ID") !!}
-                    {!! Form::input('number', 'id_item', $item->id_item, ['class' => 'form-control', 'required' => 'required']) !!}
+                    {!! Form::input('number', 'id_item', $item->id_item, ['class' => 'form-control', 'required' => 'required', 'id' => 'idItem']) !!}
                 </div>
 
                 <div class="form-group">
                     {!! Form::label('id_sub_category', "Name of the Sub-Category") !!}
                     {!! Form::select('id_sub_category', $categories, $item->id_sub_category, ['class' => 'form-control', 'required' => 'required']) !!}
+                </div>
+
+                <div class="form-group">
+                    {!! Form::label('race', "For a specific race?") !!}
+                    {!! Form::select('race', ['ALL' => 'ALL', 'ELYOS' => 'ELYOS', 'ASMODIANS' => 'ASMODIANS'], $item->race, ['class' => 'form-control', 'required' => 'required', 'id' => 'race']) !!}
                 </div>
 
                 <div class="form-group">

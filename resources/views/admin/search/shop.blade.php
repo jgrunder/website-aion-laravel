@@ -4,6 +4,7 @@
         <th>#</th>
         <th>Category</th>
         <th>Name</th>
+        <th>Race</th>
         <th>Quantity</th>
         <th>Price</th>
         <th>Number of purchase</th>
@@ -25,6 +26,7 @@
             <td>
                 <a href="https://aiondatabase.info/{{Cookie::get('language', 'en')}}/item/{{$result->id_item}}" target="_blank">{{$result->name}}</a>
             </td>
+            <td>{{$result->race}}</td>
             <td>{{$result->quantity}}</td>
             <td>{{$result->price}}</td>
             <td>{{$result->purchased}}</td>

@@ -48,7 +48,7 @@ class ShopController extends Controller {
         $searchValue = $request->input('search_value');
         $searchType  = 'shop_item_name';
 
-        $results = ShopItem::withCategory()->where('name', 'LIKE', '%'.$searchValue.'%')->paginate(30);
+        $results = ShopItem::withCategory()->withRace(session('user.race'))->where('name', 'LIKE', '%'.$searchValue.'%')->paginate(30);
 
         $results->appends(['search_value' => $searchValue, 'search_type' => $searchType]);
 
@@ -69,7 +69,7 @@ class ShopController extends Controller {
      */
     public function category($id)
     {
-        $items          = ShopItem::where('id_sub_category', $id)->paginate(12);
+        $items          = ShopItem::withRace(session('user.race'))->where('id_sub_category', $id)->paginate(12);
         $accountLevel   = AccountLevel::where('account_id', Session::get('user.id'))->first();
 
         if($items->count() === 0) {
