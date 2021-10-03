@@ -24,7 +24,7 @@ class SubscribeUserRequest extends FormRequest {
 	public function rules()
 	{
 		return [
-		    'username'              => ['required','regex:/^[a-zA-Z]+$/','max:32','unique:account_data,name'],
+		    'username'              => ['required','regex:/^[a-zA-Z0-9]+$/','max:32','unique:account_data,name'],
 			'pseudo'                => 'required|unique:account_data,pseudo|max:32',
 			'password'              => 'required|min:8|confirmed',
 			'password_confirmation' => 'required',
