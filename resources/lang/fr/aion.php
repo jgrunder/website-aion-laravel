@@ -61,7 +61,7 @@ return [
         17     => "Commandant d'armée",
         18     => "Gouverneur d'armée",
     ],
-    
+
     'map' => [
         "110010000" => "Sanctum",
         "120010000" => "Pandemonium",
@@ -102,7 +102,8 @@ return [
         "300170000" => "Temple de Beshmundir",
         "300040000" => "Poéta la Sombre",
         "300200000" => "Haramel",
-        "300230000" => "Nightmare" ,
+        "300230000" => "Nightmare",
+        "300250000" => "Esoterrasse",
         "300190000" => "The inside of Caspar",
         "300220000" => "Ruines du chaos",
         "300210000" => "Dredgion de Dzhantry",
