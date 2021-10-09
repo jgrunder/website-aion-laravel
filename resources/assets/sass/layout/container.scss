@@ -1,14 +1,14 @@
 div.container{
-  width: 940px;
+  width: 1024px;
   margin: auto;
   position: relative;
   top: -310px;
   .container_left {
-    width: 620px;
+    width: 670px;
     float: left;
   }
   .container_right {
-    width: 270px;
+    width: 300px;
     margin-left: 20px;
     float: right;
     > div:nth-child(n+2){
