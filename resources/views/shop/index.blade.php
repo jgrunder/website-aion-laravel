@@ -20,14 +20,14 @@
 
                             <h3>
                                 <!-- <img src="/images/scroll01.png" alt=""> -->
-                                <a href="https://aiondatabase.info/{{Cookie::get('language', 'en')}}/item/{{$item->id_item}}" target="_blank" class="databaseItem quality-{{\Illuminate\Support\Str::lower($item->quality_item)}}" data-id="{{$item->id_item}}">
-                                    {{\Illuminate\Support\Str::limit($item->name, 20, '...')}}
+                                <a href="https://aiondatabase.info/{{Cookie::get('language', 'en')}}/item/{{$item->id_item}}" target="_blank" class="databaseItem quality-{{Str::lower($item->quality_item)}}" data-id="{{$item->id_item}}">
+                                    {{ Str::limit($item->name, 100, '...') }}
                                 </a>
                             </h3>
 
                             <ul>
                                 <li class="quantity">{!! Lang::get('all.shop.qt') !!} : <strong class="value">{{number_format($item->quantity, 0, '.', '.')}}</strong></li>
-                                <li class="price">{!! Lang::get('all.shop.price') !!} :  <strong class="value">{{number_format($item->price, 0, '.', '.')}}</strong></li>
+                                <li class="price">{!! Lang::get('all.shop.price') !!} :  <strong class="value">{{number_format($item->price, 0, '.', '.')}} {{config('aion.vote.shop_point_name')}}</strong></li>
                                 @if(Config::get('aion.enable_account_level'))
                                     <li class="price">{!! Lang::get('all.shop.level') !!} :  <strong class="value">{{$item->level}}</strong></li>
                                 @endif
@@ -35,7 +35,7 @@
 
                             <div class="buttons">
                                 @if((isset($accountLevel->level) && $accountLevel->level >= $item->level) || (!isset($accountLevel) && $item->level == 0))
-                                    <a href="#" class="addItemInCart" data-id="{{$item->id_item}}">Add</a>
+                                    <a href="#" class="addItemInCart" data-id="{{$item->id_item}}">{!! Lang::get('all.shop.add') !!}</a>
                                 @else
                                     <a style="opacity: 0;"></a>
                                 @endif

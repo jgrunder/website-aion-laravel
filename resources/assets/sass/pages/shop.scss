@@ -4,7 +4,8 @@
 }
 .item_shop {
   width: 30%;
-  background-color: #e6e6e6;
+  color: #FFF;
+  background-color: #212d3d;
   border-radius : 5px;
   padding: 10px;
   position: relative;
@@ -60,7 +61,7 @@
   &:nth-child(n+4){
     margin-top: 20px;
   }
-  .price, .quantity { color: #2e2e2e; font-size: 14px;}
+  .price, .quantity { font-size: 14px;}
 }
 .container_shop_categories{
   text-align: left;
