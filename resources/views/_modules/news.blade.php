@@ -8,14 +8,14 @@
           @if(isset($full))
             {!! $article->text !!}
           @else
-            {!! Str::limit(strip_tags($article->text, '<p><br>'), 350) !!}
+            {!! Str::limit($article->text, 500) !!}
           @endif
         </p>
       </div>
       <div class="news_footer">
         <p>{{Lang::get('all.news.by')}} {{($article->creator->pseudo !== '') ? $article->creator->pseudo : 'Admin'}} {{\Carbon\Carbon::parse($article->created_at)->diffForHumans()}}</p>
           @if(!isset($full))
-              <a href="{{Route('news', ["slug" => $article->slug, "id" => $article->id])}}">{{Lang::get('all.news.next')}}</a>
+              <a href="{{Route('news', ["slug" => $article->slug, "id" => $article->id])}}">{{Lang::get('all.news.next')}} &raquo;</a>
           @endif
       </div>
     </div>
