@@ -24,7 +24,7 @@ class ApiController extends Controller {
      */
     public function news()
     {
-        $news = News::orderBy('created_at', 'DESC')->limit(3)->get();
+        $news = News::orderBy('created_at', 'DESC')->limit(4)->get();
         $data = '';
         foreach ($news as $new) {
             $data .= '&#8224; ' . $new->title . ' (<a href="' . route('news', [$new->slug, $new->id]) . '" target="_blank">' . Carbon::parse($new->created_at)->format('d/m/Y') . '</a>)<br/>';
