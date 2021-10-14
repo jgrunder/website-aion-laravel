@@ -39,10 +39,10 @@ class ApiController extends Controller {
     public function lastnews()
     {
         $new = News::orderBy('created_at', 'DESC')->first();
-        $data = '<p><a href="' . route('news', [$new->slug, $new->id]) . '" target="_blank">' . htmlentities($new->title, 0, 'UTF-8') . '</a></p><hr/><p>';
-        $data .= Str::replace(['<li>','</li>','<u>','</u>'], ['- ','<br/>','',''], $new->text);
+        $data = '<html><body><p><a href="' . route('news', [$new->slug, $new->id]) . '" target="_blank">' . htmlentities($new->title, 0, 'UTF-8') . '</a></p><hr/><p>';
+        $data .= Str::replace(['<li>','</li>','<u>','</u>','<ul>','</ul>'], ['- ','<br/>','','','',''], $new->text);
         $data = Str::replace(['<h2 style="text-align:center">','</h2>'], ['<p>= = = = = = = =&nbsp;&nbsp;','&nbsp;&nbsp;= = = = = = = =</p><br/>'], $data);
-        return $data . '</p>';
+        return $data . '</p></body></html>';
     }
     
     /**
