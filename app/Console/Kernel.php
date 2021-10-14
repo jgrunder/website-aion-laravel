@@ -4,6 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Jobs\ServersStatus;
 
 class Kernel extends ConsoleKernel
 {
@@ -24,44 +25,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
-        
         /**
-         * Check every 5 minutes the status of each server and store data into the cache
+         * Scheduled jobs
          */
-        $schedule->call(function () {
-            
-            $servers = config('aion.servers');
-            
-            foreach ($servers as $key => $server) {
-                if (!$server['enabled']) continue;
-                if ($key == 'Discord') continue;
-                
-                $expiresAt = 300;
-                
-                try {
-                    $check = fsockopen($server['ip'], $server['port'], $errno, $errstr, 1.0);
-                    
-                    cache(['status.'.$key => ($check) ? true : false], $expiresAt);
-                    
-                    $serversStatus[] = [
-                        'name'   => $key,
-                        'status' => ($check) ? true : false
-                    ];
-                    
-                    fclose($check);
-                    
-                } catch (\Throwable $e) {
-                    debug('Server ' . $key . ' is not available');
-                    $serversStatus[] = [
-                        'name'   => $key,
-                        'status' => false
-                    ];
-                    cache(['status.'.$key => false], $expiresAt);
-                }
-                
-            }
-        })->everyFiveMinutes();
+        $schedule->job(new ServersStatus())->everyFiveMinutes();
     }
 
     /**
