@@ -12,6 +12,10 @@ return [
     'forumUrl'           => '#',
     'minimumAccessLevel' => 3, // Minimum accessLevel for access to the back office
     'enable_weddings'    => false, // Display block with last 5 weddings
+    'database'           => [
+        'link'  => 'https://aiondatabase.info/',
+        'name'  => 'Database 2.7',
+    ],
 
     'page' => [
         'online_players' => [
