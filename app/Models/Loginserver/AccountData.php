@@ -50,6 +50,21 @@ class AccountData extends Model {
     {
         return $query->where('id', $accountId)->increment('vote');
     }
+    
+    /**
+     * Add in Scope function for vote reset
+     *
+     * @param $query
+     *
+     * @param $accountId
+     *
+     * @return
+     */
+    public function scopeVoteReset($query)
+    {
+        return $query->update(['vote' => 0]);
+    }
+    
 
     /**
      * Add in Scope function for select Me account
