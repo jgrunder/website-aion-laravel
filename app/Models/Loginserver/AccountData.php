@@ -63,6 +63,16 @@ class AccountData extends Model {
     {
         return $query->where('id', $accountId);
     }
+    
+    /**
+     * Get all GM accounts
+     * 
+     * @param $query
+     * @return $query
+     */
+    public function scopeGm($query) {
+        return $query->where('access_level', '>=', 3);
+    }
 
     /**
      * Get players of account

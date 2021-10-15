@@ -83,4 +83,12 @@ class Player extends Model {
     {
         return $this->belongsTo('App\Models\Gameserver\LegionMember', 'id', 'player_id');
     }
+    
+    /**
+     * Return Abyssal rank
+     */
+    public function abyssRank()
+    {
+        return $this->hasOne('App\Models\Gameserver\AbyssRank', 'player_id', 'id');
+    }
 }

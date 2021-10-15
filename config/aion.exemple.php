@@ -86,6 +86,12 @@ return [
         ],
     ],
 
+    // Enabling Abyssal rank reset for all GM players and GM Legion
+    'reset_gm_ap' => [
+        'enabled'   => false,
+        'legion_id' => 0,
+    ],
+
     // On the back office you can download logs from the server
     'logs' => [
         'enabled'   => true,

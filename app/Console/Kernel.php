@@ -5,6 +5,9 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use App\Jobs\ServersStatus;
+use App\Jobs\ResetAbyssRank;
+use App\Models\Loginserver\AccountData;
+use App\Jobs\ResetLegionContrib;
 
 class Kernel extends ConsoleKernel
 {
@@ -25,10 +28,16 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        /**
-         * Scheduled jobs
-         */
+        // Get servers status
         $schedule->job(new ServersStatus())->everyFiveMinutes();
+        // Reset all GM's players Abyssal rank only if config is set
+        $schedule->job(new ResetAbyssRank(AccountData::Gm()->get()))->daily()->when(function () {
+            return config('aion.reset_gm_ap.enabled', false);
+        });
+        // Reset the GM legion contribution only if config is set
+        $schedule->job(new ResetLegionContrib(config('aion.reset_gm_ap.legion_id')))->daily()->when(function () {
+            return config('aion.reset_gm_ap.enabled', false);
+        });
     }
 
     /**
