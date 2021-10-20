@@ -91,4 +91,12 @@ class Player extends Model {
     {
         return $this->hasOne('App\Models\Gameserver\AbyssRank', 'player_id', 'id');
     }
+    
+    /**
+     * Return Account Data of the player
+     */
+    public function accountData()
+    {
+        return $this->hasOne('App\Models\Loginserver\AccountData', 'id', 'account_id');
+    }
 }

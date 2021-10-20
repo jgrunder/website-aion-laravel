@@ -19,6 +19,9 @@
               @if(Config::get('aion.page.online_players.display_map') && Session::has('connected') && Session::get('user.access_level') >= Config::get('aion.page.online_players.display_map_access_level'))
                 <th>{{Lang::get('all.online.world')}}</th>
               @endif
+              @if(Session::has('connected') && Session::get('user.access_level') >= 5)
+                  <th>IP</th>
+              @endif
               <th>{{Lang::get('all.online.faction')}}</th>
               <th>{{Lang::get('all.online.classe')}}</th>
               <th>{{Lang::get('all.online.legion')}}</th>
@@ -33,6 +36,9 @@
                 @endif
                 @if(Config::get('aion.page.online_players.display_map') && Session::has('connected') && Session::get('user.access_level') >= Config::get('aion.page.online_players.display_map_access_level'))
                   <td>{{$user->world_id}}</td>
+                @endif
+                @if(Session::has('connected') && Session::get('user.access_level') >= 5)
+                    <td><span>{{ $user->accountData()->first('last_ip')->last_ip }}</span></td>
                 @endif
                 <td><span class="{{Lang::get('aion.race_logo.'.$user->race)}}"></span></td>
                 <td><span class="charactericon-class {{Lang::get('aion.class_logo.'.$user->player_class)}}"></span></td>
