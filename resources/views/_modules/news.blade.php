@@ -13,7 +13,7 @@
         </p>
       </div>
       <div class="news_footer">
-        <p>{{Lang::get('all.news.by')}} {{($article->creator->pseudo !== '') ? $article->creator->pseudo : 'Admin'}} {{\Carbon\Carbon::parse($article->created_at)->diffForHumans()}}</p>
+        <p>{{Lang::get('all.news.by')}} {{($article->creator->pseudo !== '') ? $article->creator->pseudo : 'Admin'}} {{\Carbon\Carbon::parse($article->created_at)->format('d/m/Y H:i')}}</p>
           @if(!isset($full))
               <a href="{{Route('news', ["slug" => $article->slug, "id" => $article->id])}}">{{Lang::get('all.news.next')}} &raquo;</a>
           @endif
